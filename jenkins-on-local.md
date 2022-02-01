@@ -20,6 +20,28 @@ If you need further information about docker, you can watch these clips or read 
 
 If you already have docker installed or have finished installing docker desktop, you can build the jenkins image by running 
 
-`build.sh` from [jenkins-on-local](./jenkins-on-local), and then `run.sh`.
+```sh
+./jenkins-on-local/build.sh
+```
+
+Once the build is complete, start a container by running
+
+```sh
+./jenkins-on-local/run.sh
+```
 
 This will make jenkins available on [http://localhost:8080](http://localhost:8080).
+
+To stop jenkins from running
+
+```sh
+./jenkins-on-local/stop.sh
+```
+
+The data and configuration for jenkins is stored in a docker volume called `jenkins`, so any build created would still be available when the container is started up again or built.
+
+If you need to create a clean instance of jenkins, remove the `jenkins` volume in docker as well by running
+
+```sh
+docker volume rm jenkins
+```
