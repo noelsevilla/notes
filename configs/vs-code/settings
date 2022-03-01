@@ -1,0 +1,159 @@
+{
+    "breadcrumbs.enabled": true,
+    "diffEditor.renderSideBySide": false,
+    "editor.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 12,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.minimap.enabled": false,
+    "editor.accessibilitySupport": "off",
+    "editor.dragAndDrop": false,
+    "editor.suggestSelection": "first",
+    "editor.autoClosingBrackets": "never",
+    "editor.autoClosingQuotes": "never",
+    "editor.detectIndentation": true,
+    "editor.autoIndent": "keep",
+    "editor.autoSurround": "never",
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.occurrencesHighlight": false,
+    "editor.tokenColorCustomizations": {
+        "strings": "#cca77c",
+        "comments": "#539547",
+        "numbers": "#cca77c",
+        "types": "#a4a4a4",
+        "keywords": "#369bcd",
+        "textMateRules": [
+            {
+                "scope": "punctuation.definition.string, constant.character, constant.character.escaped, constant.numeric, string.regexp, constant.numeric.css, keyword.other.unit.css, constant.other.color.css, support.constant.css, string, punctuation.definition.string, keyword.other.unit",
+                "settings": {
+                    "foreground": "#cca77c"
+                }
+            },
+            {
+                "scope": "comment, comment.block, punctuation.definition.comment",
+                "settings": {
+                    "foreground": "#539547"
+                }
+            },
+            {
+                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace",
+                "settings": {
+                    "foreground": "#a4a4a4"
+                }
+            },
+            {
+                "scope": "support.type.vendored.property-name, support.type.property-name, variable.css, variable.scss, variable.other.less, source.coffee.embedded,  entity.name.tag,keyword.operator.new, keyword.operator.expression, keyword.operator.cast, keyword.operator.sizeof, keyword.operator.typeid, keyword.operator.alignas, keyword.operator.instanceof, keyword.operator.logical.python, keyword.operator.wordlike, storage.modifier, keyword, entity.other.attribute-name.html",
+                "settings": {
+                    "foreground": "#369bcd"
+                }
+            }
+        ]
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "explorer.confirmDelete": false,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/*.pyc": {"when": "$(basename).py"},
+        "**/.idea": true,
+        "**/.vscode": false,
+        "**/.git": true,
+        "**/._.DS_Store": true,
+        "**/.DS_Store": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+    },
+    "markdown.preview.fontSize": 12,
+    "markdown.preview.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pycodestyleArgs": [
+        "--max-line-length=120"
+    ],
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.debug.settings.console": "internalConsole",
+    "java.debug.settings.forceBuildBeforeLaunch": false,
+    "java.silentNotification": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "debug.console.fontSize": 12,
+    "debug.console.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        // "editorError.foreground": "#00000000",
+        // "editorWarning.foreground": "#00000000",
+        // "editorInfo.foreground": "#00000000",
+        "editor.selectionBackground": "#565a5e65",
+        "editor.background": "#1a1a1a",
+        "editor.foreground": "#a4a4a4",
+        "editor.lineHighlightBorder": "#00000000",
+        "editor.lineHighlightBackground": "#44414080",
+        "editorBracketMatch.border": "#00000000",
+        "editorBracketMatch.background": "#add6ff26",
+        "statusBar.background" : "#3a3a3a",
+        "statusBar.noFolderBackground" : "#2a2a2a",
+        "statusBar.debuggingBackground": "#3a3a3a",
+        "sideBar.background": "#1a1a1a",
+        "sideBar.foreground": "#a4a4a4",
+        "terminal.background": "#1a1a1a",
+        "terminal.foreground": "#a4a4a4",
+        "terminal.ansiBrightWhite": "#a4a4a4"
+    },
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.showTabs": true,
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.tree.indent": 24,
+    "window.zoomLevel": 0,
+    "rest-client.previewOption": "exchange",
+    "rest-client.timeoutinmilliseconds": 55000,
+    "rest-client.fontSize": 12,
+    "rest-client.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', Consolas, 'Courier New', monospace",
+    "rest-client.environmentVariables": {
+        "$shared":{
+            "envUserID": "1"
+        },
+        "dev": {
+            "envUserID": "2"
+        },
+        "test": {
+            "envUserID": "3"
+        },
+        "production": {
+            "envUserID": "4"
+        }
+    },
+    "mssql.resultsFontSize": 12,
+    "diffEditor.ignoreTrimWhitespace": false
+}

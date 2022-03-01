@@ -1,0 +1,4 @@
+# Run 'git config --global core.excludesfile ~/.gitignore_global' to add this to git global exclude
+
+.DS_Store
+._.DS_Store
