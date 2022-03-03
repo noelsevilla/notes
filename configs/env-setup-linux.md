@@ -116,6 +116,10 @@ rbenv init
 # verify rbenv working properly
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
 
+# install ruby-build to install other versions of ruby
+mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
 # install a specific version of ruby
 rbenv install 2.2.6
 
