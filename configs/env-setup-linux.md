@@ -249,11 +249,24 @@ asdf global elixir 1.12.2-otp-24
 # check elixir is working correctly
 elixir --version
 ```
+## AWS
 
-## [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
+### [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
 
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+```
+
+### [AWS Workspaces](https://clients.amazonworkspaces.com/)
+
+```bash
+# Add amazon workspaces repo
+wget -q -O - https://workspaces-client-linux-public-key.s3-us-west-2.amazonaws.com/ADB332E7.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://d3nt0h4h6pmmc4.cloudfront.net/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/amazon-workspaces-clients.list
+sudo apt-get update
+
+# Install workspace client
+sudo apt-get install workspacesclient
 ```
