@@ -39,7 +39,7 @@
                 }
             },
             {
-                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace",
+                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace, storage.type, storage.modifier.import.java, storage.modifier.package.java",
                 "settings": {
                     "foreground": "#a4a4a4"
                 }
