@@ -2,14 +2,22 @@ Kafka is a platform for handling data feeds. Here's a [short clip about kafka](h
 
 This guide is about consuming kafka topic messages as a client from your local environment. To do that, we first need to download and have the client running locally.
 
+> Note: If you don't have a kafka host to consume messages from, you can start a local kafka host first by following the guide here [Kafka on local](#kafka-on-local).
+
+- [Prerequisites](#prerequisites)
 - [Download the kafka client](#download-the-kafka-client)
 - [Subscribe to a kafka topic](#subscribe-to-a-kafka-topic)
 - [Kafka on local](#kafka-on-local)
   - [Create a test topic](#create-a-test-topic)
   - [Post a message to the test topic](#post-a-message-to-the-test-topic)
 
-> Note: If you don't have a kafka host to consume messages from, you can start a local kafka host first by following the guide here [Kafka on local](#kafka-on-local).
+# Prerequisites
 
+Depending on the OS you're using, you would need to have:
+- bash OR [git and git for bash](https://git-scm.com/downloads) if running on windows
+- docker
+  - with windows, download and use [desktop for docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
+  - with linux, download [docker engine](https://docs.docker.com/engine/install/ubuntu/)
 # Download the kafka client
 
 Download the .tgz file for the latest version [here](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.13-3.1.0.tgz) or a specific version of the client kafka [here](https://dlcdn.apache.org/kafka/).
