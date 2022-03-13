@@ -15,6 +15,9 @@ This guide is about consuming kafka topic messages as a client from your local e
 
 Depending on the OS you're using, you would need to have:
 - bash OR [git and git for bash](https://git-scm.com/downloads) if running on windows
+- java
+  - with windows, download and install the [java SDK](https://openjdk.java.net/)
+  - with linux, install [SDKMan and install the java SDK](./configs/env-setup-linux.md#sdkman)
 - docker
   - with windows, download and use [desktop for docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
   - with linux, download [docker engine](https://docs.docker.com/engine/install/ubuntu/)
