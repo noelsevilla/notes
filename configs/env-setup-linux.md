@@ -200,27 +200,6 @@ asdf global golang 1.17.6
 go version
 ```
 
-### [Kubernetes](https://kubernetes.io/)
-
-Using asdf to manage kubernetes kubectl
-
-```bash
-asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
-
-asdf install kubectl 1.22.2
-asdf global kubectl 1.22.2
-
-kubectl version
-```
-
-### [Helm](https://helm.sh/)
-
-```bash
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
-```
-
 ### [Elixir](https://elixir-lang.org/)
 
 Using asdf to manage elixir versions
@@ -249,6 +228,100 @@ asdf global elixir 1.12.2-otp-24
 # check elixir is working correctly
 elixir --version
 ```
+
+## [Docker](https://www.docker.com/resources/what-container) and [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+
+### Docker
+
+Install docker engine using the repository
+
+```bash
+# Update package index and install required os packages
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+# Add docker GPG keys
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Add the docker repository
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install docker engine
+sudo apt-get update
+
+# NOTE: sometime if you get 'Release file not found' error when running apt update, 
+# it could be that the ubuntu release in the docker.list in /etc/apt/sources.list.d/ is incorrect.
+# Update docker.list with the correct release name ie from 'Una' to 'Focal'
+
+# Continue with the install
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+# Test docker engine is working by running a hello-world image
+sudo docker run hello-world
+
+# Create docker group to allow users to run docker commands with correct privilege
+sudo groupadd docker
+
+# Add user to the docker group
+sudo usermond -aG docker $USER
+
+# Activate the changes to the groups
+newgrp docker
+newgrp $USER
+
+# Log out and back in for the changes to take effect 
+```
+
+### Kubernetes with [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+
+```bash
+# Install minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+# Start minikube and confirm working
+minikube start
+
+# Add kubectl alias in .bashrc to use kubectl included in minikube
+echo "alias kubectl='minikube kubectl --'" >> ~/.bashrc
+
+# Check you can access the kubernetes cluster with kubectl
+kubectl get po -A
+```
+Follow further steps 4 from minikube 'docs/start' page to get familiar
+
+https://minikube.sigs.k8s.io/docs/start/
+
+### [Kubernetes](https://kubernetes.io/)
+
+> NOTE: If you added an alias to kubectl using minikube's kubectl above,
+> then you can skip this step
+ 
+Using asdf to manage kubernetes kubectl
+
+```bash
+asdf plugin-add kubectl https://github.com/asdf-community/asdf-kubectl.git
+
+asdf install kubectl 1.22.2
+asdf global kubectl 1.22.2
+
+kubectl version
+```
+
+### [Helm](https://helm.sh/)
+
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+```
+
 ## AWS
 
 ### [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
