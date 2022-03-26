@@ -36,3 +36,5 @@ grapecity.gc-excelviewer
 timonwong.shellcheck
 ms-vscode-remote.vscode-remote-extensionpack
 alexkrechik.cucumberautocomplete
+GitLab.gitlab-workflow
+hashicorp.terraform

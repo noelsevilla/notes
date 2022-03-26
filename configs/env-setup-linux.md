@@ -27,6 +27,7 @@
   - [AWS](#aws)
     - [AWS CLI](#aws-cli)
     - [AWS Workspaces](#aws-workspaces)
+  - [Terraform](#terraform)
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
@@ -344,10 +345,17 @@ kubectl version
 
 ### [Helm](https://helm.sh/)
 
+Using asdf to manage helm
+
 ```bash
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
+asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
+asdf install helm 3.8.1
+
+# Set global helm version
+asdf global helm 3.8.1
+
+# Check helm is working
+helm version
 ```
 
 ## AWS
@@ -370,4 +378,19 @@ sudo apt-get update
 
 # Install workspace client
 sudo apt-get install workspacesclient
+```
+
+## [Terraform](https://www.terraform.io/intro)
+
+Using asdf to manage terraform
+
+```bash
+asdf plugin-add terraform https://github.com/Banno/asdf-hashicorp.git
+asdf install terraform 1.1.7
+
+# Set global terraform version
+asdf global terraform 1.1.7
+
+# Check terraform is working
+terraform --version
 ```
