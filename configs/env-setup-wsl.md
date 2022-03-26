@@ -1,5 +1,13 @@
 # Setup [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
 
+- [Setup Windows Subsystem for Linux](#setup-windows-subsystem-for-linux)
+  - [Prerequisites](#prerequisites)
+  - [Set WSL2 as the default version](#set-wsl2-as-the-default-version)
+  - [Install a Linux distribution](#install-a-linux-distribution)
+    - [Upgrade linux packages](#upgrade-linux-packages)
+  - [Install Windows Terminal](#install-windows-terminal)
+  - [Setup Linux environment](#setup-linux-environment)
+
 ## Prerequisites
 
 Check if wsl is already installed by running from the terminal:
@@ -53,4 +61,4 @@ You can install it from the [Windows store here](https://www.microsoft.com/en-nz
 
 ## Setup Linux environment
 
-Not that you have a linux environment thru WSL, you can set this up using the [env-setup-linux.md guide](https://github.com/noelsevilla/notes/blob/master/configs/env-setup-linux.md).
+Now that you have a linux environment thru WSL, you can set this up using the [env-setup-linux.md guide](https://github.com/noelsevilla/notes/blob/master/configs/env-setup-linux.md).

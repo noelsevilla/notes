@@ -1,5 +1,33 @@
 # Setup WSL dev environment
 
+- [Setup WSL dev environment](#setup-wsl-dev-environment)
+  - [ssh-ident](#ssh-ident)
+  - [Node](#node)
+    - [nvm](#nvm)
+  - [SDKMan](#sdkman)
+    - [Java](#java)
+    - [Gradle](#gradle)
+    - [Kotlin](#kotlin)
+  - [DotNet](#dotnet)
+  - [Ruby](#ruby)
+    - [rbenv](#rbenv)
+  - [Python](#python)
+    - [pyenv](#pyenv)
+  - [Rust](#rust)
+  - [asdf](#asdf)
+    - [Go](#go)
+    - [Elixir](#elixir)
+      - [erlang](#erlang)
+      - [elixir](#elixir-1)
+  - [Docker and Kubernetes](#docker-and-kubernetes)
+    - [Docker](#docker)
+    - [Kubernetes with Minikube](#kubernetes-with-minikube)
+    - [Kubernetes](#kubernetes)
+    - [Helm](#helm)
+  - [AWS](#aws)
+    - [AWS CLI](#aws-cli)
+    - [AWS Workspaces](#aws-workspaces)
+
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
 Use to start ssh-agents and load ssh keys on demand once. this requires python > 3 to be available.
@@ -229,9 +257,9 @@ asdf global elixir 1.12.2-otp-24
 elixir --version
 ```
 
-## [Docker](https://www.docker.com/resources/what-container) and [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+## Docker and Kubernetes
 
-### Docker
+### [Docker](https://www.docker.com/resources/what-container)
 
 Install docker engine using the repository
 
@@ -298,7 +326,7 @@ Follow further steps 4 from minikube 'docs/start' page to get familiar
 
 https://minikube.sigs.k8s.io/docs/start/
 
-### [Kubernetes](https://kubernetes.io/)
+### [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics)
 
 > NOTE: If you added an alias to kubectl using minikube's kubectl above,
 > then you can skip this step

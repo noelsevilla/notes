@@ -1,5 +1,23 @@
 # Setup Windows dev environment
 
+- [Setup Windows dev environment](#setup-windows-dev-environment)
+  - [Chocolatey](#chocolatey)
+  - [Git](#git)
+  - [C++ build tools](#c-build-tools)
+  - [Node](#node)
+    - [nvm](#nvm)
+  - [Ruby](#ruby)
+    - [rbenv](#rbenv)
+  - [Python](#python)
+    - [pyenv](#pyenv)
+  - [SDKMan](#sdkman)
+    - [Java](#java)
+    - [Gradle](#gradle)
+    - [Kotlin](#kotlin)
+  - [Rust](#rust)
+  - [Helm](#helm)
+  - [Go](#go)
+
 ## [Chocolatey](https://chocolatey.org/install)
 
 Windows package manager. Will require for installing some tools.

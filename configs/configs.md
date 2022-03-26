@@ -1,5 +1,11 @@
 # Anything Settings
 
+- [Anything Settings](#anything-settings)
+  - [Useful commands](#useful-commands)
+  - [SSH](#ssh)
+    - [Generate SSH keys for Github (or other version control)](#generate-ssh-keys-for-github-or-other-version-control)
+    - [Multiple accounts and hosts](#multiple-accounts-and-hosts)
+
 ## Useful commands
 
 ```bash
