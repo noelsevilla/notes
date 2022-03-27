@@ -298,7 +298,7 @@ sudo docker run hello-world
 sudo groupadd docker
 
 # Add user to the docker group
-sudo usermond -aG docker $USER
+sudo usermod -aG docker $USER
 
 # Activate the changes to the groups
 newgrp docker
