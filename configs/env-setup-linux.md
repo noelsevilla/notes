@@ -19,8 +19,13 @@
     - [Elixir](#elixir)
       - [erlang](#erlang)
       - [elixir](#elixir-1)
+  - [GPG and Password manager with pass](#gpg-and-password-manager-with-pass)
+    - [GPG](#gpg)
+    - [Pass](#pass)
   - [Docker and Kubernetes](#docker-and-kubernetes)
     - [Docker](#docker)
+      - [Docker Credential Helper](#docker-credential-helper)
+        - [Multiple docker configs](#multiple-docker-configs)
     - [Kubernetes with Minikube](#kubernetes-with-minikube)
     - [Kubernetes](#kubernetes)
     - [Helm](#helm)
@@ -258,6 +263,47 @@ asdf global elixir 1.12.2-otp-24
 elixir --version
 ```
 
+## GPG and Password manager with pass
+
+This will be used as the credential store for credential helpers ie [docker credential helpers](https://github.com/docker/docker-credential-helpers). 
+
+>You won't need to set this up now unless you know you will need to at least use docker and push to container registries and pull from private container registries.
+
+### [GPG](https://gnupg.org/)
+
+Generate a gpg key. run:
+
+```bash
+# if using gpg v2.2
+gpg --generate-key
+
+# if not on v2.2, see the manual
+gpg --help
+
+# and then find the command to 'generate a new key pair'
+# follow through the prompts and complete
+
+# once done, check the generated key
+gpg --list-keys
+```
+### [Pass](https://www.passwordstore.org/)
+
+Install password-store
+
+```bash
+git clone https://git.zx2c4.com/password-store ~/password-store
+cd ~/password-store
+sudo -E make install
+
+# check pass version to confirm working
+pass --version
+
+# initialise pass
+pass init {{ email used on gpg key creation }}
+
+# ie 'pass init some@email.com'
+```
+
 ## Docker and Kubernetes
 
 ### [Docker](https://www.docker.com/resources/what-container)
@@ -305,6 +351,36 @@ newgrp docker
 newgrp $USER
 
 # Log out and back in for the changes to take effect 
+```
+
+#### [Docker Credential Helper](https://github.com/docker/docker-credential-helpers)
+
+You would need to have [GPG and password-store](#gpg-and-password-manager-with-pass) installed and configured before proceeding. Once done:
+
+```bash
+cd ~
+wget https://github.com/docker/docker-credential-helpers/releases/download/v0.6.2/docker-credential-pass-v0.6.2-amd64.tar.gz
+tar -xf docker-credential-pass-v0.6.2-amd64.tar.gz
+sudo mv docker-credential-pass /usr/local/bin/
+
+mkdir ~/.docker && touch ~/.docker/config.json
+echo -e '{\n  "credsStore": "pass"\n}' >> ~/.docker/config.json
+```
+
+##### Multiple docker configs
+
+When you have multiple accounts that pulls from a container registry, you can create multiple docker configs and use the --config option to use a specific docker config
+
+To create another docker config:
+
+```bash
+docker --config ~/.docker-registry-1 login registry.example.com -u <username>
+```
+
+And to use this config when pulling:
+
+```bash
+docker --config ~/.docker-registry-1 pull registry.example.com/container:1.0
 ```
 
 ### Kubernetes with [Minikube](https://minikube.sigs.k8s.io/docs/start/)
