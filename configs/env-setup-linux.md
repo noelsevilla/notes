@@ -31,6 +31,8 @@
     - [Helm](#helm)
   - [AWS](#aws)
     - [AWS CLI](#aws-cli)
+      - [Configure AWS profile](#configure-aws-profile)
+      - [Multiple AWS Profile](#multiple-aws-profile)
     - [AWS Workspaces](#aws-workspaces)
   - [Terraform](#terraform)
 
@@ -442,6 +444,44 @@ helm version
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+```
+
+#### Configure AWS profile
+
+Create an aws profile:
+
+```bash
+aws configure
+
+# set your access and secret
+# use getcalleridentity to test your credentials
+
+aws sts get-caller-identity
+```
+
+#### [Multiple AWS Profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+
+You can have multiple aws accounts by adding named profiles. To add a new profile, use the same configure command with the profile option:
+
+```bash
+aws configure --profile mynewprofile
+
+# set your access and secret
+# use getcalleridentity to test your credentials
+
+aws --profile=mynewprofile sts get-caller-identity
+```
+
+To not keep having the profile option on every aws command, you can set an AWS_PROFILE environment variable with the profile you want to use
+
+```bash
+export AWS_PROFILE=mynewprofile
+
+# to switch to the default profile
+export AWS_PROFILE=default
+
+# or unset AWS_PROFILE to go back to the default profile
+unset AWS_PROFILE
 ```
 
 ### [AWS Workspaces](https://clients.amazonworkspaces.com/)
