@@ -7,6 +7,9 @@
     - [Upgrade linux packages](#upgrade-linux-packages)
   - [Install Windows Terminal](#install-windows-terminal)
   - [Setup Linux environment](#setup-linux-environment)
+  - [Enable GUI on WSL](#enable-gui-on-wsl)
+    - [VcXsrc](#vcxsrc)
+    - [Configure WSL](#configure-wsl)
 
 ## Prerequisites
 
@@ -62,3 +65,45 @@ You can install it from the [Windows store here](https://www.microsoft.com/en-nz
 ## Setup Linux environment
 
 Now that you have a linux environment thru WSL, you can set this up using the [env-setup-linux.md guide](https://github.com/noelsevilla/notes/blob/master/configs/env-setup-linux.md).
+
+## Enable GUI on WSL
+
+Enable running a GUI from WSL on Windows. ie running a browser test.
+
+### [VcXsrc](https://sourceforge.net/projects/vcxsrv/)
+
+This enables the app running from WSL to display in Windows. Download and install it from [here](https://sourceforge.net/projects/vcxsrv/).
+
+When you first run it, allow `Public networks` when the Windows firewall pop up.
+
+Right click on the app icon and select the options `Multiple windows` and `Start no client` for it to display from WSL.
+
+Open the app and from `extra settings` disable `access control`.
+
+### Configure WSL
+
+Log in to your linux distro (ie Ubuntu).
+
+Open bash and run the following:
+
+```bash
+echo "export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0" >> ~/.bashrc
+
+# echo $DISPLAY to confirm working
+echo $DISPLAY
+
+# automatically start dbus
+sudo /etc/init.d/dbus start &> /dev/null
+
+# grant paswordless access for dbus
+# this will open a file editor
+sudo visudo -f /etc/sudoers.d/dbus
+
+# enter the following. replace <your-username> with your linux username
+# you can check your username by running the command whoami
+<your-username> ALL = (root) NOPASSWD: /etc/init.d/dbus
+
+# save and close the file
+```
+
+You should now be able to display a GUI running from WSL on windows.
