@@ -19,6 +19,8 @@
     "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.occurrencesHighlight": false,
+    "editor.guides.indentation": false,
+    "editor.bracketPairColorization.enabled": false,
     "editor.tokenColorCustomizations": {
         "strings": "#cca77c",
         "comments": "#539547",
@@ -39,7 +41,7 @@
                 }
             },
             {
-                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace, storage.type, storage.modifier.import.java, storage.modifier.package.java",
+                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace, storage.type, storage.modifier.import.java, storage.modifier.package.java, keyword.control.ternary",
                 "settings": {
                     "foreground": "#a4a4a4"
                 }
@@ -66,7 +68,7 @@
         "**/__pycache__": true,
         "**/.pytest_cache": true,
         "**/*.pyc": {"when": "$(basename).py"},
-        "**/.idea": true,
+        "**/.idea": false,
         "**/.vscode": false,
         "**/.git": true,
         "**/._.DS_Store": true,
@@ -101,7 +103,9 @@
     "java.silentNotification": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "javascript.preferences.quoteStyle": "single",
+    "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.preferences.quoteStyle": "single",
+    "typescript.updateImportsOnFileMove.enabled": "always",
     "debug.console.fontSize": 12,
     "debug.console.fontFamily": "'JetBrains Mono', 'JetBrains Mono NL', Consolas, 'Courier New', monospace",
     "terminal.integrated.fontSize": 12,
