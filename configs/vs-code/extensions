@@ -38,3 +38,6 @@ ms-vscode-remote.vscode-remote-extensionpack
 alexkrechik.cucumberautocomplete
 GitLab.gitlab-workflow
 hashicorp.terraform
+pivotal.vscode-boot-dev-pack
+gabrielbb.vscode-lombok
+rangav.vscode-thunder-client
