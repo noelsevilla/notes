@@ -16,7 +16,6 @@
     "editor.detectIndentation": true,
     "editor.autoIndent": "keep",
     "editor.autoSurround": "never",
-    "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.occurrencesHighlight": false,
     "editor.guides.indentation": false,
@@ -41,13 +40,13 @@
                 }
             },
             {
-                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace, storage.type, storage.modifier.import.java, storage.modifier.package.java, keyword.control.ternary",
+                "scope": "support.class, support.function, entity.name.class, entity.name.function.decorator, entity.other.inherited-class, variable.language, constant.language, keyword.operator, variable.other.enummember, variable.other, punctuation.accessor, meta.brace, storage.type, storage.modifier.import.java, storage.modifier.package.java, keyword.control.ternary, punctuation.section.embedded, punctuation.definition.tag, meta.embedded",
                 "settings": {
                     "foreground": "#a4a4a4"
                 }
             },
             {
-                "scope": "support.type.vendored.property-name, support.type.property-name, variable.css, variable.scss, variable.other.less, source.coffee.embedded,  entity.name.tag,keyword.operator.new, keyword.operator.expression, keyword.operator.cast, keyword.operator.sizeof, keyword.operator.typeid, keyword.operator.alignas, keyword.operator.instanceof, keyword.operator.logical.python, keyword.operator.wordlike, storage.modifier, keyword, entity.other.attribute-name.html",
+                "scope": "support.type.vendored.property-name, support.type.property-name, variable.css, variable.scss, variable.other.less, source.coffee.embedded,  entity.name.tag,keyword.operator.new, keyword.operator.expression, keyword.operator.cast, keyword.operator.sizeof, keyword.operator.typeid, keyword.operator.alignas, keyword.operator.instanceof, keyword.operator.logical.python, keyword.operator.wordlike, storage.modifier, storage.type.kotlin, keyword, entity.other.attribute-name, support.class.component.tsx",
                 "settings": {
                     "foreground": "#369bcd"
                 }
