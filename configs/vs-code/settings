@@ -46,7 +46,7 @@
                 }
             },
             {
-                "scope": "support.type.vendored.property-name, support.type.property-name, variable.css, variable.scss, variable.other.less, source.coffee.embedded,  entity.name.tag,keyword.operator.new, keyword.operator.expression, keyword.operator.cast, keyword.operator.sizeof, keyword.operator.typeid, keyword.operator.alignas, keyword.operator.instanceof, keyword.operator.logical.python, keyword.operator.wordlike, storage.modifier, storage.type.kotlin, keyword, entity.other.attribute-name, support.class.component.tsx",
+                "scope": "support.type.vendored.property-name, support.type.property-name, variable.css, variable.scss, variable.other.less, source.coffee.embedded,  entity.name.tag,keyword.operator.new, keyword.operator.expression, keyword.operator.cast, keyword.operator.sizeof, keyword.operator.typeid, keyword.operator.alignas, keyword.operator.instanceof, keyword.operator.logical.python, keyword.operator.wordlike, storage.modifier, storage.type.kotlin, keyword, entity.other.attribute-name, support.class.component.tsx, storage.type.package.kotlin, storage.type.import.kotlin, storage.type.class.kotlin",
                 "settings": {
                     "foreground": "#369bcd"
                 }
