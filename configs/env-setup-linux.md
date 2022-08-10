@@ -35,6 +35,7 @@
       - [Multiple AWS Profile](#multiple-aws-profile)
     - [AWS Workspaces](#aws-workspaces)
   - [Terraform](#terraform)
+  - [JMeter](#jmeter)
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
@@ -509,4 +510,18 @@ asdf global terraform 1.1.7
 
 # Check terraform is working
 terraform --version
+```
+
+## [JMeter]()
+
+Run the commands below to install jmeter. Change the version to match to download a specific version.
+
+This also adds a `jmeter` alias that runs this jmeter that's downloaded. Remember to update this alias if you need to use a different version of jmeter. 
+
+
+```bash
+wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.5.zip -P ~/
+mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter
+echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
+
 ```
