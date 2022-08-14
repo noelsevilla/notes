@@ -5,6 +5,8 @@
   - [SSH](#ssh)
     - [Generate SSH keys for Github (or other version control)](#generate-ssh-keys-for-github-or-other-version-control)
     - [Multiple accounts and hosts](#multiple-accounts-and-hosts)
+  - [Linux](#linux)
+    - [Find files](#find-files)
 
 ## Useful commands
 
@@ -51,3 +53,9 @@ And to clone a repo from the organisation2 account, do:
 ```bash
 git clone git@github.com-organisation2:organisation2/some-org-repo.git
 ```
+
+## Linux
+
+### Find files
+
+Find files in linux using [find](https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/).
