@@ -41,3 +41,7 @@ hashicorp.terraform
 pivotal.vscode-boot-dev-pack
 gabrielbb.vscode-lombok
 rangav.vscode-thunder-client
+mtxr.sqltools
+mtxr.sqltools-driver-pg
+jeppeandersen.vscode-kafka
+mongodb.mongodb-vscode
