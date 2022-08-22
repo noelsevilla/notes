@@ -2,7 +2,7 @@ Sometimes you might want to try out some things in Jenkins. However you may not 
 
 You can however start up a local running instance of Jenkins.
 
-This requires you to have docker running in your local. The [jenkins-on-local](./jenkins-on-local) directory should have all the docker files and scripts you need to have jenkins running in docker in your local environment.
+This requires you to have docker running in your local. The [jenkins](./jenkins) directory should have all the docker files and scripts you need to have jenkins running in docker in your local environment.
 
 If you need further information about docker, you can watch these clips or read the docker about page [here](https://docs.docker.com/get-started/).
 
@@ -21,13 +21,13 @@ If you need further information about docker, you can watch these clips or read 
 If you already have docker installed or have finished installing docker desktop, you can build the jenkins image by running 
 
 ```sh
-./jenkins-on-local/build.sh
+./jenkins/script/build.sh
 ```
 
 Once the build is complete, start a container by running
 
 ```sh
-./jenkins-on-local/run.sh
+./jenkins/script/run.sh
 ```
 
 This will make jenkins available on [http://localhost:8989](http://localhost:8989).
@@ -35,7 +35,7 @@ This will make jenkins available on [http://localhost:8989](http://localhost:898
 To stop jenkins from running
 
 ```sh
-./jenkins-on-local/stop.sh
+./jenkins/script/stop.sh
 ```
 
 The data and configuration for jenkins is stored in a docker volume called `jenkins`, so any build created would still be available when the container is started up again or built.

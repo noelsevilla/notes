@@ -1,11 +1,4 @@
-FROM jenkins/jenkins:2.346.3-lts-jdk17
-
-ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
-ENV CASC_JENKINS_CONFIG /var/jenkins_home/jenkins.yaml
-
-COPY jenkins-on-local/jenkins-config/jenkins.yaml /var/jenkins_home/jenkins.yaml
-COPY jenkins-on-local/jenkins-config/plugins.txt /usr/share/jenkins/ref/plugins.txt
-RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
+FROM jenkins/jenkins:2.346.3-lts-jdk11
 
 USER root
 RUN apt-get update && apt-get install -y \
@@ -36,5 +29,12 @@ RUN ./aws/install
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 RUN chmod +x kubectl
 RUN mv ./kubectl /usr/local/bin/kubectl
+
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+ENV CASC_JENKINS_CONFIG /var/jenkins_home/jenkins.yaml
+
+COPY jenkins/config/jenkins.yaml /var/jenkins_home/jenkins.yaml
+COPY jenkins/config/plugins.txt /usr/share/jenkins/ref/plugins.txt
+RUN jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 
 USER jenkins
