@@ -27,7 +27,7 @@ If you already have docker installed or have finished installing docker desktop,
 Once the build is complete, start a container by running
 
 ```sh
-./jenkins/script/run.sh
+./jenkins/script/start.sh
 ```
 
 This will make jenkins available on [http://localhost:8989](http://localhost:8989).

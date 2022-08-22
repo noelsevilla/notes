@@ -70,7 +70,7 @@ You should then start recieving messages from the kafka topic you subscribed to.
 To start a local instance of kafka, run the `up` script from the [./kafka](./kafka) directory.
 
 ```bash
-./kafka/script/up.sh
+./kafka/script/start.sh
 ```
 
 This creates a docker image and starts a kafka container. If you already have a kafka client installed, continue with [Create a test topic](#create-a-test-topic)). Otherwise, [Download the kafka client](#download-the-kafka-client).
