@@ -30,7 +30,7 @@ Once the build is complete, start a container by running
 ./jenkins-on-local/run.sh
 ```
 
-This will make jenkins available on [http://localhost:8080](http://localhost:8080).
+This will make jenkins available on [http://localhost:8989](http://localhost:8989).
 
 To stop jenkins from running
 
