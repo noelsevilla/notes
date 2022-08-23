@@ -7,6 +7,8 @@ This guide is about consuming kafka topic messages as a client from your local e
 - [Prerequisites](#prerequisites)
   - [Windows Java SDK](#windows-java-sdk)
 - [Download the kafka client](#download-the-kafka-client)
+  - [Windows](#windows)
+  - [Linux](#linux)
 - [Subscribe to a kafka topic](#subscribe-to-a-kafka-topic)
 - [Kafka on local](#kafka-on-local)
   - [Create a test topic](#create-a-test-topic)
@@ -41,11 +43,20 @@ This sets up java for Windows.
 
 Download the .tgz file for the latest version [here](https://www.apache.org/dyn/closer.cgi?path=/kafka/3.1.0/kafka_2.13-3.1.0.tgz) or a specific version of the client kafka [here](https://dlcdn.apache.org/kafka/).
 
+## Windows
 - Create a `kafka` folder under C:\
 - Open the .tgz file, it will contain a .tar file.
 - Extract the .tar file and copy its contect to C:\kafka.
 - You should then have a directory structure like so:
   - C:\kafka\\{kafka-version}\bin
+
+## Linux
+Run the commands:
+```bash
+wget https://downloads.apache.org/kafka/3.2.1/kafka_2.12-3.2.1.tgz -P ~/
+mkdir -p ~/kafka && tar -zxvf ~/kafka_2.12-3.2.1.tgz -C ~/kafka
+echo 'export PATH="$HOME/kafka/kafka_2.12-3.2.1/bin:$PATH"' >> ~/.bashrc
+```
 
 # Subscribe to a kafka topic
 
