@@ -4,6 +4,8 @@
   - [ssh-ident](#ssh-ident)
   - [Node](#node)
     - [nvm](#nvm)
+    - [Options](#options)
+      - [Set memory use](#set-memory-use)
   - [SDKMan](#sdkman)
     - [Java](#java)
     - [Gradle](#gradle)
@@ -74,6 +76,24 @@ npm install -g yarn
 # check yarn working properly
 yarn --version
 
+```
+
+### Options
+
+#### Set memory use
+
+Node has a default max memory use of less than 2GB. It's possible to set or increase this by setting the `max-old-space-size` option from `NODE_OPTIONS`.
+
+To do this from the CLI when running your node app:
+
+```bash
+NODE_OPTIONS=--max-old-space-size=40996 npm run some-node-script
+```
+
+Or you can export this from your terminal:
+
+```bash
+echo 'export NODE_OPTIONS="--max-old-space-size=4096"' >> ~/.bashrc
 ```
 
 ## [SDKMan](https://sdkman.io/)
