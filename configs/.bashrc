@@ -17,3 +17,34 @@ alias gpso='git push origin'
 alias gs='git status'
 alias gv='git remote -v'
 alias ptest='pytest -s --disable-warnings --tb=short -m'
+
+# update os
+alias update-os='sudo apt-get update && sudo apt-get upgrade -y && sudo apt autoremove -y'
+
+# increase nodejs max memory
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+removeContainers () {
+    if [[ ( $1 == "--help") ||  $1 == "-h" ]]
+        then
+            echo "Use option -n with a name to check containers that partially match"
+            return
+    fi
+
+    if [[ $1 == "-n" && -n "$2" ]]
+        then
+            matchingContainers=$(docker container list --all --filter name="$2" | awk '{if(NR>1) print $NF}')
+            if [[ -z "$matchingContainers" ]]
+                then
+                    echo No containers found matching "$2"
+                    return
+            fi
+
+            echo Stopping and removing containers...
+            docker container stop $matchingContainers
+            docker container rm $matchingContainers
+        else
+            echo "Set a value to search for containers with option -n"
+            return
+    fi
+}
