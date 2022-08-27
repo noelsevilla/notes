@@ -1,0 +1,190 @@
+{
+	"console.log": {
+		"scope": "javascript,typescript",
+		"prefix": "clog",
+		"body": [
+			"console.log('$1');"
+		],
+		"description": "Console log"
+	},
+	"snippets.js.test.hook.before": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookBefore",
+		"body": [
+			"before(function () {",
+			"  ${1:console.log('do something before');}",
+			"\\});",
+			""
+		],
+		"description": "Before test hook"
+	},
+	"snippets.js.test.hook.before.all": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookBeforeAll",
+		"body": [
+			"beforeAll(function () {",
+			"  ${1:console.log('do something before all');}",
+			"\\});",
+			""
+		],
+		"description": "Before all test hook"
+	},
+	"snippets.js.test.hook.before.each": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookBeforeEach",
+		"body": [
+			"beforeEach(function () {",
+			"  ${1:console.log('do something before each');}",
+			"\\});",
+			""
+		],
+		"description": "Before each test hook"
+	},
+	"snippets.js.test.hook.arrow.before": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookArrowBefore",
+		"body": [
+			"before(() => {",
+			"  ${1:console.log('do something before');}",
+			"\\});",
+			""
+		],
+		"description": "Before test arrow hook"
+	},
+	"snippets.js.test.hook.arrow.before.all": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookArrowBeforeAll",
+		"body": [
+			"beforeAll(() => {",
+			"  ${1:console.log('do something before all');}",
+			"\\});",
+			""
+		],
+		"description": "Before all test arrow hook"
+	},
+	"snippets.js.test.hook.arrow.before.each": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookArrowBeforeEach",
+		"body": [
+			"beforeEach(() => {",
+			"  ${1:console.log('do something before each');}",
+			"\\});",
+			""
+		],
+		"description": "Before each test arrow hook"
+	},
+	"snippets.js.test.hook.after": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookAfter",
+		"body": [
+			"after(function () {",
+			"  ${1:console.log('do something after');}",
+			"\\});",
+			""
+		],
+		"description": "After test hook"
+	},
+	"snippets.js.test.hook.after.all": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookAfterAll",
+		"body": [
+			"afterAll(function () {",
+			"  ${1:console.log('do something after all');}",
+			"\\});",
+			""
+		],
+		"description": "After all test hook"
+	},
+	"snippets.js.test.hook.after.each": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookAfterEach",
+		"body": [
+			"afterEach(function () {",
+			"  ${1:console.log('do something after each');}",
+			"\\});",
+			""
+		],
+		"description": "After each test hook"
+	},
+	"snippets.js.test.hook.arrow.after": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookArrowAfter",
+		"body": [
+			"after(() => {",
+			"  ${1:console.log('do something after');}",
+			"\\});",
+			""
+		],
+		"description": "After test arrow hook"
+	},
+	"snippets.js.test.hook.arrow.after.all": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookArrowAfterAll",
+		"body": [
+			"afterAll(() => {",
+			"  ${1:console.log('do something after all');}",
+			"\\});",
+			""
+		],
+		"description": "After all test arrow hook"
+	},
+	"snippets.js.test.hook.arrow.after.each": {
+		"scope": "javascript,typescript",
+		"prefix": "testHookArrowAfterEach",
+		"body": [
+			"afterEach(() => {",
+			"  ${1:console.log('do something after each');}",
+			"\\});",
+			""
+		],
+		"description": "After each test arrow hook"
+	},
+	"snippets.js.test.suite.mocha": {
+		"scope": "javascript,typescript",
+		"prefix": "testSuiteMocha",
+		"body": [
+			"describe('${1:description}', function () {",
+			"  it('${2:scenario}', function () {",
+			"    expect(1).to.equal(1);",
+			"  \\});",
+			"\\});"
+		],
+		"description": "Test suite with mocha and chai"
+	},
+	"snippets.js.test.suite.mocha.async": {
+		"scope": "javascript,typescript",
+		"prefix": "testSuiteMochaAsync",
+		"body": [
+			"describe('${1:description}', function () {",
+			"  it('${2:scenario}', async function () {",
+			"    await expect(1).to.equal(1);",
+			"  \\});",
+			"\\});"
+		],
+		"description": "Test suite and async test with mocha and chai"
+	},
+	"snippets.js.test.suite.jest": {
+		"scope": "javascript,typescript",
+		"prefix": "testSuiteJest",
+		"body": [
+			"describe('${1:description}', () => {",
+			"  test('${2:scenario}', () => {",
+			"    expect(1).toEqual(1);",
+			"  \\});",
+			"\\});"
+		],
+		"description": "Test suite with jest"
+	},
+	"snippets.js.test.suite.jest.async": {
+		"scope": "javascript,typescript",
+		"prefix": "testSuiteJestAsync",
+		"body": [
+			"describe('${1:description}', () => {",
+			"  test('${2:scenario}', async () => {",
+			"    await expect(1).toEqual(1);",
+			"  \\});",
+			"\\});"
+		],
+		"description": "Test suite and async test with jest"
+	}
+}
