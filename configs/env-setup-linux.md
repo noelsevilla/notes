@@ -37,6 +37,7 @@
       - [Multiple AWS Profile](#multiple-aws-profile)
     - [AWS Workspaces](#aws-workspaces)
   - [Terraform](#terraform)
+  - [MongoDB](#mongodb)
   - [JMeter](#jmeter)
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
@@ -530,6 +531,19 @@ asdf global terraform 1.1.7
 
 # Check terraform is working
 terraform --version
+```
+
+## [MongoDB](https://www.mongodb.com/)
+
+Using asdf to manage mongodb with mongosh
+
+```sh
+asdf plugin-add mongosh https://github.com/itspngu/asdf-mongosh
+asdf install mongosh 1.5.4
+asdf global mongosh 1.5.4
+
+# Check mongosh is working
+mongosh --version
 ```
 
 ## [JMeter]()
