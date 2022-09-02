@@ -1,2 +1,5 @@
 [diff "color"]
 	commit = normal
+
+[init]
+	defaultBranch = main
