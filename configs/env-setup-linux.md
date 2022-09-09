@@ -24,6 +24,8 @@
   - [GPG and Password manager with pass](#gpg-and-password-manager-with-pass)
     - [GPG](#gpg)
     - [Pass](#pass)
+  - [IDE](#ide)
+    - [IntelliJ](#intellij)
   - [Docker and Kubernetes](#docker-and-kubernetes)
     - [Docker](#docker)
       - [Docker Credential Helper](#docker-credential-helper)
@@ -327,6 +329,30 @@ pass init {{ email used on gpg key creation }}
 
 # ie 'pass init some@email.com'
 ```
+
+## IDE
+
+### [IntelliJ](https://www.jetbrains.com/help/idea/installation-guide.html)
+
+Install IntelliJ Toolbox and then install Idea and other IntelliJ IDEs from there.
+
+```bash
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.25.12627.tar.gz -P ~/
+sudo tar -xzf ~/jetbrains-toolbox-1.25.12627.tar.gz -C /opt
+# create symlink to user
+sudo ln -s /opt/jetbrains-toolbox-1.25.12627/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox
+sudo chmod -R +rwx /usr/local/bin/jetbrains-toolbox
+
+# you can then run 'jetbrains-toolbox' from the terminal to start
+```
+
+Then install IntelliJ Idea from the toolbox. Once installed, you can run it by running `idea` from the terminal or to open a project
+
+```bash
+idea ./some/path/to/project/directory
+```
+
+There is a [settings zip file](./intellij/settings-intellij.zip) you can import in Idea to apply configs and theme.
 
 ## Docker and Kubernetes
 
