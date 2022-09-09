@@ -41,6 +41,7 @@
   - [Terraform](#terraform)
   - [MongoDB](#mongodb)
   - [JMeter](#jmeter)
+  - [Browser](#browser)
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
@@ -572,7 +573,7 @@ asdf global mongosh 1.5.4
 mongosh --version
 ```
 
-## [JMeter]()
+## JMeter
 
 Run the commands below to install jmeter. Change the version to match to download a specific version.
 
@@ -583,5 +584,29 @@ This also adds a `jmeter` alias that runs this jmeter that's downloaded. Remembe
 wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.5.zip -P ~/
 mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter
 echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
+
+```
+
+## Browser
+
+Install the brave browser
+
+```bash
+# Update packages and install prereq
+sudo apt update
+sudo apt -y install curl software-properties-common apt-transport-https
+
+# import brave repo keys
+curl https://brave-browser-apt-release.s3.brave.com/brave-core.asc| gpg --dearmor > brave-core.gpg
+sudo install -o root -g root -m 644 brave-core.gpg /etc/apt/trusted.gpg.d/
+
+# Add brave to repo
+echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+# Update package and install brave browser
+sudo apt update
+sudo apt install brave-browser
+
+echo "alias brave='brave-browser'" >> ~/.bashrc
 
 ```
