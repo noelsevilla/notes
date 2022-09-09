@@ -88,6 +88,8 @@ Open bash and run the following:
 
 ```bash
 echo "export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0" >> ~/.bashrc
+echo "export LIBGL_ALWAYS_INDIRECT=1" >> ~/.bashrc
+echo "GDK_SCALE=1" >> ~/.bashrc
 
 # echo $DISPLAY to confirm working
 echo $DISPLAY
