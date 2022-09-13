@@ -5,9 +5,9 @@ alias l='ls -CF'
 
 # git
 alias gf='git fetch --all --prune'
-alias gl='git log --oneline'
-alias gb='git branch -v --all'
-alias gfb='git fetch --all --prune && git branch -v --all'
+alias gl='git log --graph --pretty=format:"%Cgreen%ad%Creset %C(auto)%h%d %s %C(bold black)<%aN>%Creset" --date=format-local:"%Y-%m-%d %H:%M"'
+alias gb='git branch --list --format="%(color:green)%(authordate:format:%Y-%m-%d %H:%M) %(if)%(HEAD)%(then)%(color:brightgreen)* %(end)%(if)%(push)%(then)%(color:brightwhite)%(refname:short)%(else)%(color:brightred)%(refname:short)%(end) %(color:reset)%(if)%(push:track)%(then)%(color:white)%(push:track) %(else)%(end)%(color:reset)%(objectname:short) %(subject) %(color:brightblack)<%(authorname)>" --all'
+alias gfb='git fetch --all --prune  && gb'
 alias gbd='git branch -D'
 alias gc='git checkout'
 alias gcb='git checkout -b'
