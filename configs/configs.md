@@ -2,6 +2,7 @@
 
 - [Anything Settings](#anything-settings)
   - [Useful commands](#useful-commands)
+    - [Set default linux editor](#set-default-linux-editor)
   - [SSH](#ssh)
     - [Generate SSH keys for Github (or other version control)](#generate-ssh-keys-for-github-or-other-version-control)
     - [Multiple accounts and hosts](#multiple-accounts-and-hosts)
@@ -12,9 +13,9 @@
 
 ## Useful commands
 
-```bash
-# Get and set default linux editor
+### Set default linux editor
 
+```bash
 update-alternatives --list editor
 
 update-alternatives --set editor /usr/bin/vim.basic

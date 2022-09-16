@@ -1,6 +1,9 @@
 # Setup WSL dev environment
 
 - [Setup WSL dev environment](#setup-wsl-dev-environment)
+  - [neovim](#neovim)
+    - [Install vim-plug to manage neovim plugins](#install-vim-plug-to-manage-neovim-plugins)
+    - [Create nvim init file](#create-nvim-init-file)
   - [ssh-ident](#ssh-ident)
   - [Node](#node)
     - [nvm](#nvm)
@@ -42,6 +45,34 @@
   - [MongoDB](#mongodb)
   - [JMeter](#jmeter)
   - [Browser](#browser)
+
+## neovim
+
+Install neovim and set as default editor
+
+>Note: swap file for neovim are located in 
+>~/.local/share/nvim/swap/
+
+```bash
+sudo apt-get update && sudo apt-get install neovim
+update-alternatives --set editor /usr/bin/nvim
+
+# create vim alias to point to nvim
+echo "alias vim='nvim'" >> ~/.bashrc
+```
+
+### Install vim-plug to manage neovim plugins
+
+Install [vim-plug](https://github.com/junegunn/vim-plug) to manage neovim plugins
+
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+### Create nvim init file
+
+Copy the file [init.vim](configs/init.vim) to `~/.config/nvim` and then install the plugins. open vim and run the command `PlugInstall` (type :PlugInstall).
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
