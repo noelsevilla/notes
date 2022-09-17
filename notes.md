@@ -2,6 +2,8 @@
 
 - [Anything Settings](#anything-settings)
   - [Useful commands](#useful-commands)
+    - [Color picker](#color-picker)
+    - [Unicode table](#unicode-table)
     - [Set default linux editor](#set-default-linux-editor)
   - [SSH](#ssh)
     - [Generate SSH keys for Github (or other version control)](#generate-ssh-keys-for-github-or-other-version-control)
@@ -12,6 +14,14 @@
     - [Worktree](#worktree)
 
 ## Useful commands
+
+### Color picker
+
+[Color picker tool](https://www.w3schools.com/colors/colors_picker.asp)
+
+### Unicode table
+
+[Unicode character table](https://unicode-table.com/en)
 
 ### Set default linux editor
 
