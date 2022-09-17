@@ -1,6 +1,9 @@
 # Setup WSL dev environment
 
 - [Setup WSL dev environment](#setup-wsl-dev-environment)
+  - [neovim](#neovim)
+    - [Install vim-plug to manage neovim plugins](#install-vim-plug-to-manage-neovim-plugins)
+    - [Create nvim init file](#create-nvim-init-file)
   - [ssh-ident](#ssh-ident)
   - [Node](#node)
     - [nvm](#nvm)
@@ -43,6 +46,34 @@
   - [JMeter](#jmeter)
   - [Browser](#browser)
 
+## neovim
+
+Install neovim and set as default editor
+
+>Note: swap file for neovim are located in 
+>~/.local/share/nvim/swap/
+
+```bash
+sudo apt-get update && sudo apt-get install neovim
+update-alternatives --set editor /usr/bin/nvim
+
+# create vim alias to point to nvim
+echo "alias vim='nvim'" >> ~/.bashrc
+```
+
+### Install vim-plug to manage neovim plugins
+
+Install [vim-plug](https://github.com/junegunn/vim-plug) to manage neovim plugins
+
+```bash
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+### Create nvim init file
+
+Copy the file [init.vim](configs/init.vim) to `~/.config/nvim` and then install the plugins. open vim and run the command `PlugInstall` (type :PlugInstall).
+
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
 Use to start ssh-agents and load ssh keys on demand once. this requires python > 3 to be available.
@@ -79,7 +110,6 @@ npm install -g yarn
 
 # check yarn working properly
 yarn --version
-
 ```
 
 ### Options
@@ -141,7 +171,6 @@ sdk install kotlin 1.5.30
 
 # check kotlin working properly
 kotlin -version
-
 ```
 
 ## [DotNet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
@@ -193,6 +222,7 @@ ruby --version
 ### [pyenv](https://github.com/pyenv/pyenv)
 
 Using pyenv to manage python installations and versions
+
 ```bash
 # install required linraries to build python later on first
 sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
@@ -245,7 +275,6 @@ exec $SHELL
 
 # check asdf is working correctly
 asdf --version
-
 ```
 
 ### [Go](https://kubernetes.io/)
@@ -584,7 +613,6 @@ This also adds a `jmeter` alias that runs this jmeter that's downloaded. Remembe
 wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.5.zip -P ~/
 mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter
 echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
-
 ```
 
 ## Browser
@@ -608,5 +636,4 @@ sudo apt update
 sudo apt install brave-browser
 
 echo "alias brave='brave-browser'" >> ~/.bashrc
-
 ```

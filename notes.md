@@ -2,17 +2,30 @@
 
 - [Anything Settings](#anything-settings)
   - [Useful commands](#useful-commands)
+    - [Color picker](#color-picker)
+    - [Unicode table](#unicode-table)
+    - [Set default linux editor](#set-default-linux-editor)
   - [SSH](#ssh)
     - [Generate SSH keys for Github (or other version control)](#generate-ssh-keys-for-github-or-other-version-control)
     - [Multiple accounts and hosts](#multiple-accounts-and-hosts)
   - [Linux](#linux)
     - [Find files](#find-files)
+  - [Git](#git)
+    - [Worktree](#worktree)
 
 ## Useful commands
 
-```bash
-# Get and set default linux editor
+### Color picker
 
+[Color picker tool](https://www.w3schools.com/colors/colors_picker.asp)
+
+### Unicode table
+
+[Unicode character table](https://unicode-table.com/en)
+
+### Set default linux editor
+
+```bash
 update-alternatives --list editor
 
 update-alternatives --set editor /usr/bin/vim.basic
@@ -59,3 +72,12 @@ git clone git@github.com-organisation2:organisation2/some-org-repo.git
 ### Find files
 
 Find files in linux using [find](https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/).
+
+## Git
+
+### Worktree
+
+Articles about and on how to use worktrees for workspace and branch management
+
+[How to use git worktree and in a clean way](https://morgan.cugerone.com/blog/how-to-use-git-worktree-and-in-a-clean-way/)
+[Worktrees that fetches remote branches from bare repository](https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/)
