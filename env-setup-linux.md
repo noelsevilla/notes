@@ -110,7 +110,6 @@ npm install -g yarn
 
 # check yarn working properly
 yarn --version
-
 ```
 
 ### Options
@@ -172,7 +171,6 @@ sdk install kotlin 1.5.30
 
 # check kotlin working properly
 kotlin -version
-
 ```
 
 ## [DotNet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
@@ -224,6 +222,7 @@ ruby --version
 ### [pyenv](https://github.com/pyenv/pyenv)
 
 Using pyenv to manage python installations and versions
+
 ```bash
 # install required linraries to build python later on first
 sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
@@ -276,7 +275,6 @@ exec $SHELL
 
 # check asdf is working correctly
 asdf --version
-
 ```
 
 ### [Go](https://kubernetes.io/)
@@ -615,7 +613,6 @@ This also adds a `jmeter` alias that runs this jmeter that's downloaded. Remembe
 wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.5.zip -P ~/
 mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter
 echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
-
 ```
 
 ## Browser
@@ -639,5 +636,4 @@ sudo apt update
 sudo apt install brave-browser
 
 echo "alias brave='brave-browser'" >> ~/.bashrc
-
 ```
