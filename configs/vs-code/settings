@@ -60,6 +60,7 @@
         "typescriptreact"
     ],
     "explorer.confirmDelete": false,
+    "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
