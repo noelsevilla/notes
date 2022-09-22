@@ -1,5 +1,5 @@
 # ls
-alias ll='ls -alF'
+alias ll='ls -alhF --time-style="+%Y-%m-%d %H:%M:%S"'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -23,6 +23,7 @@ alias gwta='git worktree add'
 alias gwtp='git worktree prune'
 
 # other alias
+alias reload='source ~/.bashrc'
 alias cl='clear'
 alias ptest='pytest -s --disable-warnings --tb=short -m'
 alias update-os='sudo apt-get update && sudo apt-get upgrade -y && sudo apt autoremove -y'
