@@ -1,12 +1,15 @@
 #!/bin/bash
 
+export PATH=~/.bash_scripts:$PATH
 # Add if using git bash
 if [ -f ~/.bash_config ]; then
     . ~/.bash_config
 fi
-export PATH=~/.bash_scripts:$PATH
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
 fi
 
 # increase nodejs max memory
