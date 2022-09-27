@@ -25,5 +25,6 @@ alias gwtp='git worktree prune'
 # other alias
 alias reload='source ~/.bashrc'
 alias cl='clear'
+alias reload='source ~/.bashrc'
 alias ptest='pytest -s --disable-warnings --tb=short -m'
 alias update-os='sudo apt-get update && sudo apt-get upgrade -y && sudo apt autoremove -y'
