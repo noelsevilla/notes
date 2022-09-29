@@ -45,6 +45,7 @@
   - [MongoDB](#mongodb)
   - [JMeter](#jmeter)
   - [Browser](#browser)
+  - [DBeaver](#dbeaver)
 
 ## neovim
 
@@ -636,4 +637,21 @@ sudo apt update
 sudo apt install brave-browser
 
 echo "alias brave='brave-browser'" >> ~/.bashrc
+```
+
+## DBeaver
+
+Install
+
+```bash
+# Add dbeaver repo
+wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
+echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+
+# Install
+sudo apt update
+sudo apt install dbeaver-ce
+
+# Check
+apt policy dbeaver-ce
 ```
