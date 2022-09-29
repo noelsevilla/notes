@@ -1,34 +1,49 @@
 #!/bin/bash
 
-# TODO
-# we need
-# AWS_PROFILE
-# AWS_DEFAULT_REGION
-# AWS_DOMAIN
-# AWS_DOMAIN_OWNER
-# path to .aws
-# path to .gradle gradle.properties
+# Run this with source ie `source aws-az-login profile name` to export env variables correctly
 
 if [ -z "$1" ]; then
-    echo "No AWS profile was given. Try 'aws-su titles-nonprod'"
-    echo "Unsetting AWS_PROFILE"
-    unset AWS_PROFILE
+    echo "No AWS profile was given. Try 'aws-su profile-name'"
+    exit 1
+else
+    echo "Setting AWS_PROFILE to $1"
+    export AWS_PROFILE=$1
+fi
+
+if [ -z "$AWS_DEFAULT_REGION" ]; then
+    echo "No AWS_DEFAULT_REGION env variable is set. Setting default to ap-southeast-2"
+    export AWS_DEFAULT_REGION=ap-southeast-2
+fi
+if [ -z "$AWS_DOMAIN" ]; then
+    echo "Error. AWS_DOMAIN env variable is required but is not set."
+    exit 1
+fi
+if [ -z "$AWS_DOMAIN_OWNER" ]; then
+    echo "Error. AWS_DOMAIN_OWNER env variable is required but is not set."
     exit 1
 fi
 
-echo "Logging into '$1'"
-docker run --rm -it -v /path/to/.aws:/root/.aws sportradar/aws-azure-login --profile $1
-export AWS_DEFAULT_REGION=ap-southeast-2
-export AWS_PROFILE=$1
+echo "Authorizing profile '$1'"
+if [[ ! -f ~/.aws/credentials ]]; then
+    echo "Trying to get aws config from ~/.aws but directory is not found"
+    exit 1
+fi
+docker run --rm -it -v ~/.aws:/root/.aws sportradar/aws-azure-login --profile $1
 
-echo "default region $AWS_DEFAULT_REGION"
-echo "profile $AWS_PROFILE"
+echo "Using AWS region $AWS_DEFAULT_REGION"
+echo "Using AWS profile $AWS_PROFILE"
 echo "Getting codeartifact auth token..."
-CODEARTY=`aws codeartifact get-authorization-token --domain $AWS_DOMAIN --domain-owner $AWS_DOMAIN_OWNER --query authorizationToken --output text --profile $AWS_PROFILE --region $AWS_DEFAULT_REGION`
+CODEARTY=$(aws codeartifact get-authorization-token --domain $AWS_DOMAIN --domain-owner $AWS_DOMAIN_OWNER --query authorizationToken --output text --profile $AWS_PROFILE --region $AWS_DEFAULT_REGION)
 
 if [[ "$CODEARTY" ]]; then
-    sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' /path/to/.gradle/gradle.properties
-    echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> /path/to/.gradle/gradle.properties
+    if [ -f ~/.gradle/gradle.properties ]; then
+        echo "Adding codeartifact auth token to ~/.gradle/gradle.properties"
+        sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' ~/.gradle/gradle.properties
+        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> ~/.gradle/gradle.properties
+    else
+        echo "Creating ~/.gradle/gradle.properties and adding codeartifact auth token"
+        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY > ~/.gradle/gradle.properties
+    fi
     export CODEARTIFACT_AUTH_TOKEN=$CODEARTY
     echo "Done"
 else
