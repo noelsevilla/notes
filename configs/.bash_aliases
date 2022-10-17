@@ -22,12 +22,35 @@ alias gwtr='git worktree remove'
 alias gwta='git worktree add'
 alias gwtp='git worktree prune'
 
+# aws
+alias aws-get-identity='aws sts get-caller-identity'
+
+# docker
+alias d='docker'
+alias dc='d container'
+alias di='d image'
+alias dn='d network'
+alias dv='d volume'
+alias de='d exec -it'
+alias d-restart='d restart'
+alias dc-prune='dc prune -f'
+alias dc-list='dc list'
+alias dc-list-all='dc list --all'
+alias di-list='di list'
+alias di-list-all='di list --all'
+alias di-prune='di prune -f'
+alias di-prune-all='di prune --all -f'
+
+# minikube
+alias kube='minikube kubectl --'
+alias mini-docker='eval $(minikube docker-env)'
+
 # other alias
-alias reload='source ~/.bashrc'
 alias cl='clear'
+alias reload='source ~/.bashrc'
 alias work='cd ~/work'
-alias ptest='pytest -s --disable-warnings --tb=short -m'
 alias update-os='sudo apt-get update && sudo apt-get upgrade -y && sudo apt autoremove -y'
+alias pytest='pytest -s --disable-warnings --tb=short -m'
 alias dbeaver='dbeaver &> /dev/null & '
 
 function idea() {
