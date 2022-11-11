@@ -1,13 +1,47 @@
-#!/bin/bash
+#!/bin/sh
 
 # Run this with source ie `source aws-az-login profile name` to export env variables correctly
 
-if [ -z "$1" ]; then
+force_update=false
+
+while [ ! -z "$1" ]; do
+    case "$1" in
+        --force|-f)
+            shift
+            force_update=true
+            ;;
+        *)
+            aws_profile=$1
+            ;;
+    esac
+shift
+done
+
+check_token_update_required () {
+    echo "Checking if auth update is needed..."
+    codeartifact_created_key_exist=$(grep -c 'CODEARTIFACT_CREATED=' ~/.bashrc)
+    if [[ $codeartifact_created_key_exist != 0 ]]; then
+        codeartifact_created=$(cat ~/.bashrc | sed -En "s/CODEARTIFACT_CREATED=(.*)/\1/p")
+        timestamp=$(date "+%s")
+
+        echo CodeArtifact token is $((($timestamp-$codeartifact_created)/3600)) hour\(s\) old
+        if [[ $(($timestamp-$codeartifact_created)) -gt 39600 ]]; then # Check if auth token is more than 11 hrs old
+            return 1
+        else
+            return 0
+        fi
+    fi
+    return 1
+}
+
+echo "Authorizing AWS and getting CodeArtifact token..."
+
+if [ -z "$aws_profile" ]; then
     echo "No AWS profile was given. Try 'aws-su profile-name'"
     exit 1
 else
-    echo "Setting AWS_PROFILE to $1"
-    export AWS_PROFILE=$1
+    echo "Setting AWS_PROFILE to $aws_profile"
+    export AWS_PROFILE=$aws_profile
 fi
 
 if [ -z "$AWS_DEFAULT_REGION" ]; then
@@ -23,30 +57,45 @@ if [ -z "$AWS_DOMAIN_OWNER" ]; then
     exit 1
 fi
 
-echo "Authorizing profile '$1'"
-if [[ ! -f ~/.aws/credentials ]]; then
+echo "Authorizing profile '$aws_profile'"
+if [[ ! -f $USERPROFILE/.aws/credentials ]]; then
     echo "Trying to get aws config from ~/.aws but directory is not found"
     exit 1
 fi
-docker run --rm -it -v ~/.aws:/root/.aws sportradar/aws-azure-login --profile $1
 
-echo "Using AWS region $AWS_DEFAULT_REGION"
-echo "Using AWS profile $AWS_PROFILE"
-echo "Getting codeartifact auth token..."
-CODEARTY=$(aws codeartifact get-authorization-token --domain $AWS_DOMAIN --domain-owner $AWS_DOMAIN_OWNER --query authorizationToken --output text --profile $AWS_PROFILE --region $AWS_DEFAULT_REGION)
+if [[ $force_update == false ]]; then
+    check_token_update_required
+    token_update_required=$?
+fi
 
-if [[ "$CODEARTY" ]]; then
-    if [ -f ~/.gradle/gradle.properties ]; then
+if [[ $token_update_required != 0 || $force_update == true ]]; then
+    echo "Updating..."
+    docker run --rm -it -v $USERPROFILE/.aws:/root/.aws sportradar/aws-azure-login --profile $aws_profile
+
+    echo "Using AWS region $AWS_DEFAULT_REGION"
+    echo "Using AWS profile $AWS_PROFILE"
+    echo "Getting codeartifact auth token..."
+    CODEARTY=$(aws codeartifact get-authorization-token --domain $AWS_DOMAIN --domain-owner $AWS_DOMAIN_OWNER --query authorizationToken --output text --profile $AWS_PROFILE --region $AWS_DEFAULT_REGION)
+
+    if [[ "$CODEARTY" ]]; then
         echo "Adding codeartifact auth token to ~/.gradle/gradle.properties"
-        sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' ~/.gradle/gradle.properties
-        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> ~/.gradle/gradle.properties
+        if [ -f $USERPROFILE/.gradle/gradle.properties ]; then
+            sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' $USERPROFILE/.gradle/gradle.properties
+            echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> $USERPROFILE/.gradle/gradle.properties
+        else
+            echo "Creating ~/.gradle/gradle.properties and adding codeartifact auth token"
+            echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY > $USERPROFILE/.gradle/gradle.properties
+        fi
+        echo "Adding codeartifact auth token to ~/.bashrc and created timestamp"
+        sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' $USERPROFILE/.bashrc
+        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> $USERPROFILE/.bashrc
+        sed -i '/^CODEARTIFACT_CREATED=/d' $USERPROFILE/.bashrc
+        echo CODEARTIFACT_CREATED=$(date "+%s") >> $USERPROFILE/.bashrc
+        echo "Done"
     else
-        echo "Creating ~/.gradle/gradle.properties and adding codeartifact auth token"
-        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY > ~/.gradle/gradle.properties
+        echo "Failed to get codeartifact auth token"
+        exit 1
     fi
-    export CODEARTIFACT_AUTH_TOKEN=$CODEARTY
-    echo "Done"
 else
-    echo "Failed to get codeartifact auth token"
-    exit 1
+    echo "Update not needed."
 fi
