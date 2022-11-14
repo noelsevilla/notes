@@ -40,6 +40,7 @@ alias di-list='di list'
 alias di-list-all='di list --all'
 alias di-prune='di prune -f'
 alias di-prune-all='di prune --all -f'
+alias compose='d compose'
 
 # minikube
 alias kube='minikube kubectl --'
