@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Remove worktree and branch
+if [ -z "$1" ]; then
+    echo "Error: Worktree name is missing. add name after command like 'remove-git-worktree worktree-name'"
+    exit 1
+fi
+
+git worktree remove "$1"
+git worktree prune
+git branch -D "$1"
