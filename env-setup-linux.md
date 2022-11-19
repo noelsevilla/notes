@@ -46,6 +46,8 @@
   - [JMeter](#jmeter)
   - [Browser](#browser)
   - [DBeaver](#dbeaver)
+  - [Postman](#postman)
+    - [Uninstall](#uninstall)
 
 ## neovim
 
@@ -654,4 +656,41 @@ sudo apt install dbeaver-ce
 
 # Check
 apt policy dbeaver-ce
+```
+
+## Postman
+
+```bash
+wget https://dl.pstmn.io/download/latest/linux64 -O ~/Downloads/linux64
+sudo tar -xvf ~/Downloads/linux64 -C /usr/bin
+echo 'export PATH="$PATH:/usr/bin/Postman"' >> ~/.bashrc
+```
+
+Run `Postman` from terminal or add a shortcut:
+
+```
+sudo vim /usr/share/applications/Postman.desktop
+```
+
+Paste to file:
+```
+[Desktop Entry]
+Name=Postman API Tool
+GenericName=Postman
+Comment=Testing API
+Exec=/usr/bin/Postman/Postman
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/bin/Postman/app/resources/app/assets/icon.png
+StartupWMClass=Postman
+StartupNotify=true
+```
+
+### Uninstall
+
+```bash
+sudo rm -r /usr/bin/Postman
+sudo rm -r /usr/share/applications/Postman.desktop
+sudo rm -r ~/Desktop/Postman.desktop
 ```
