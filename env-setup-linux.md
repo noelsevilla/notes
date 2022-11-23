@@ -43,6 +43,7 @@
     - [AWS Workspaces](#aws-workspaces)
   - [Terraform](#terraform)
   - [MongoDB](#mongodb)
+  - [QEMU](#qemu)
   - [JMeter](#jmeter)
   - [Browser](#browser)
   - [DBeaver](#dbeaver)
@@ -604,6 +605,10 @@ asdf global mongosh 1.5.4
 # Check mongosh is working
 mongosh --version
 ```
+
+## [QEMU](https://www.qemu.org/)
+
+Follow [this guide](https://christitus.com/vm-setup-in-linux/) to setup QEMU
 
 ## JMeter
 
