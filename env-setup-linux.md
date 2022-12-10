@@ -49,6 +49,11 @@
   - [DBeaver](#dbeaver)
   - [Postman](#postman)
     - [Uninstall](#uninstall)
+  - [ODBC](#odbc)
+    - [Postgres](#postgres)
+    - [Informix](#informix)
+      - [Install](#install)
+      - [Configure](#configure)
 
 ## neovim
 
@@ -698,4 +703,97 @@ StartupNotify=true
 sudo rm -r /usr/bin/Postman
 sudo rm -r /usr/share/applications/Postman.desktop
 sudo rm -r ~/Desktop/Postman.desktop
+```
+
+## ODBC
+
+Install odbc
+
+```sh
+sudo apt install unixodbc odbcinst
+```
+
+Check the location of the configuration file
+
+```sh
+odbcint -j
+```
+
+### Postgres
+
+Install odbc driver
+
+```sh
+sudo apt install odbc-postgresql
+```
+
+Add odbc connection for postgres
+
+```sh
+vim /etc/odbcinst.ini
+```
+
+**Add postgres connection**
+```
+[postgres]
+Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbca.so
+
+```
+
+### Informix
+
+See guide from this link [Install informix odbc driver](https://techblog.jj-it.de/oracle-gateway-to-odbc/access-to-informix-database-informix-odbc-driver-installation/) or follow the steps below.
+
+#### Install
+
+Install required dependencies
+
+```sh
+sudo add-apt-repository universe
+install libncurses5 libncurses5:i386
+```
+
+Download the [client sdk](https://www.ibm.com/support/pages/download-informix-products) and install.
+
+```sh
+sudo mkdir -p /opt/install/ibm/3_7
+sudo cp ~/Downlaods/clientsdk.3.70.FC8DE.LINUX.tar /opt/install/ibm/3_7
+cd /opt/install/ibm/3_7
+sudo tar xf clientsdk.3.70.FC8DE.LINUX.tar
+sudo ./installclientsdk
+
+# Install to /opt/IBM/informix
+# Select options 1,8,11,12 (odbc and gsl)
+```
+
+#### Configure
+
+Create a sqlhosts file for informix
+
+```sh
+# Depending on where the informix client is installed
+# in this case /opt/IBM/informix
+
+sudo cp /opt/IBM/informix/etc/sqlhosts.std /opt/IBM/informix/etc/sqlhosts
+sudo vim /opt/IBM/informix/etc/sqlhosts
+
+# Add informix db details ie
+echo 'informix onsoctcp localhost 9088' | sudo tee -a /opt/IBM/informix/etc/sqlhosts > /dev/null
+```
+
+Add an informix db connection to your odbc.ini file (could be in /etc/odbcinst.ini)
+
+```
+[{{name_of_informix_db}}]
+Driver=/opt/IBM/informix/lib/cli/iclit09b.so
+Database={{database_name}}
+Servername={{server_name}}
+```
+
+**Export the following env variables**
+
+```sh
+echo 'export INFORMIXDIR=/opt/IBM/informix' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=$INFORMIXDIR/lib/esql' >> ~/.bashrc
+echo 'export ODBCINI=/etc/odbcinst.ini' >> ~/.bashrc
 ```
