@@ -20,12 +20,12 @@ done
 check_token_update_required () {
     echo "Checking if auth update is needed..."
     codeartifact_created_key_exist=$(grep -c 'CODEARTIFACT_CREATED=' ~/.bashrc)
-    if [[ $codeartifact_created_key_exist != 0 ]]; then
+    if [ $codeartifact_created_key_exist != 0 ]; then
         codeartifact_created=$(cat ~/.bashrc | sed -En "s/CODEARTIFACT_CREATED=(.*)/\1/p")
         timestamp=$(date "+%s")
 
         echo CodeArtifact token is $((($timestamp-$codeartifact_created)/3600)) hour\(s\) old
-        if [[ $(($timestamp-$codeartifact_created)) -gt 39600 ]]; then # Check if auth token is more than 11 hrs old
+        if [ $(($timestamp-$codeartifact_created)) -gt 39600 ]; then # Check if auth token is more than 11 hrs old
             return 1
         else
             return 0
@@ -58,7 +58,7 @@ if [ -z "$AWS_DOMAIN_OWNER" ]; then
 fi
 
 echo "Authorizing profile '$aws_profile'"
-if [[ ! -f $USERPROFILE/.aws/credentials ]]; then
+if [ ! -f ~/.aws/credentials ]; then
     echo "Trying to get aws config from ~/.aws but directory is not found"
     exit 1
 fi
@@ -70,7 +70,13 @@ fi
 
 if [[ $token_update_required != 0 || $force_update == true ]]; then
     echo "Updating..."
-    docker run --rm -it -v $USERPROFILE/.aws:/root/.aws sportradar/aws-azure-login --profile $aws_profile
+    docker run --rm -it -v ~/.aws:/root/.aws sportradar/aws-azure-login --profile $aws_profile
+    login_exit_code=$?
+
+    if [ $login_exit_code != 0 ]; then
+        echo "Failed to authenticate using aws-az-login."
+        exit 1
+    fi
 
     echo "Using AWS region $AWS_DEFAULT_REGION"
     echo "Using AWS profile $AWS_PROFILE"
@@ -79,18 +85,18 @@ if [[ $token_update_required != 0 || $force_update == true ]]; then
 
     if [[ "$CODEARTY" ]]; then
         echo "Adding codeartifact auth token to ~/.gradle/gradle.properties"
-        if [ -f $USERPROFILE/.gradle/gradle.properties ]; then
-            sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' $USERPROFILE/.gradle/gradle.properties
-            echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> $USERPROFILE/.gradle/gradle.properties
+        if [ -f ~/.gradle/gradle.properties ]; then
+            sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' ~/.gradle/gradle.properties
+            echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> ~/.gradle/gradle.properties
         else
             echo "Creating ~/.gradle/gradle.properties and adding codeartifact auth token"
-            echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY > $USERPROFILE/.gradle/gradle.properties
+            echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY > ~/.gradle/gradle.properties
         fi
         echo "Adding codeartifact auth token to ~/.bashrc and created timestamp"
-        sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' $USERPROFILE/.bashrc
-        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> $USERPROFILE/.bashrc
-        sed -i '/^CODEARTIFACT_CREATED=/d' $USERPROFILE/.bashrc
-        echo CODEARTIFACT_CREATED=$(date "+%s") >> $USERPROFILE/.bashrc
+        sed -i '/^CODEARTIFACT_AUTH_TOKEN=/d' ~/.bashrc
+        echo CODEARTIFACT_AUTH_TOKEN=$CODEARTY >> ~/.bashrc
+        sed -i '/^CODEARTIFACT_CREATED=/d' ~/.bashrc
+        echo CODEARTIFACT_CREATED=$(date "+%s") >> ~/.bashrc
         echo "Done"
     else
         echo "Failed to get codeartifact auth token"
