@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "Error: Process name is missing. add name after command like 'kill-process processname'"
+    exit 1
+fi
+
+process_name="$1"
+echo "Finding processes with name \"$process_name\" to kill"
+processes_to_kill=$(ps -ef | grep "$process_name" | grep -v "grep" | grep -v "kill-process")
+
+if [ -z "$processes_to_kill" ]; then
+  echo "No process with name \"$process_name\" found"
+  exit 0
+fi
+
+echo $processes_to_kill | awk '{print "Found processes:\n" $8 "\nkilling..."}'
+echo $processes_to_kill | awk '{print $2}' | xargs kill
