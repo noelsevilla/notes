@@ -3,11 +3,9 @@
 # Run this with source ie `source aws-az-login profile name` to export env variables correctly
 
 force_update=false
-
 while [ ! -z "$1" ]; do
     case "$1" in
         --force|-f)
-            shift
             force_update=true
             ;;
         *)
@@ -37,7 +35,7 @@ check_token_update_required () {
 echo "Authorizing AWS and getting CodeArtifact token..."
 
 if [ -z "$aws_profile" ]; then
-    echo "No AWS profile was given. Try 'aws-su profile-name'"
+    echo "No AWS profile was given. Try 'aws-az-login profile-name'"
     exit 1
 else
     echo "Setting AWS_PROFILE to $aws_profile"
