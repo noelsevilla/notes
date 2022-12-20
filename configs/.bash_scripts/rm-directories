@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Remove all directories and nested directories of a given name
+force_remove=false
+while [ ! -z "$1" ]; do
+    case "$1" in
+        --force|-f)
+            force_remove=true
+            ;;
+        *)
+            directory_name=$1
+            ;;
+    esac
+shift
+done
+
+if [ -z "$directory_name" ]; then
+  echo "No directory name provided. ie rm-directories directory-name"
+  exit 1
+fi
+
+# find -type d -name "node_modules" -exec echo rm -rf {} \;
+delete_directories=$(find . -type d -name $directory_name)
+echo "$delete_directories"
+if [ -z "$delete_directories" ]; then
+  echo "no directories found"
+  exit 0
+fi
+
+remove_directories () {
+  find . -type d -name "$1" -exec rm -rf {} +
+}
+
+if [ $force_remove = false ]; then
+  echo "$delete_directories"
+  read -p "Found the following directories to delete. Continue (y/n)?" choice
+  case "$choice" in
+    y|Y ) ;;
+    n|N ) echo "Not deleting the directories. exiting..." && exit 0;;
+    * ) echo "Press either y or n" && exit 1;;
+  esac
+fi
+
+remove_directories "$directory_name"
