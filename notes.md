@@ -10,6 +10,8 @@
     - [Multiple accounts and hosts](#multiple-accounts-and-hosts)
   - [Linux](#linux)
     - [Find files](#find-files)
+    - [Batch rename](#batch-rename)
+    - [ddrescue for iso images](#ddrescue-for-iso-images)
   - [Git](#git)
     - [Worktree](#worktree)
 
@@ -72,6 +74,17 @@ git clone git@github.com-organisation2:organisation2/some-org-repo.git
 ### Find files
 
 Find files in linux using [find](https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/).
+
+### Batch rename
+
+[How to rename files in linux](https://linuxize.com/post/how-to-rename-files-in-linux/)
+[How to rename multiple files on linux](https://linuxconfig.org/how-to-rename-multiple-files-on-linux)
+
+### ddrescue for iso images
+
+```sh
+ddrescue -D --force /path/to/iso/image /dev/sdx/path/to/usb
+```
 
 ## Git
 
