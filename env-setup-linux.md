@@ -70,18 +70,15 @@ update-alternatives --set editor /usr/bin/nvim
 echo "alias vim='nvim'" >> ~/.bashrc
 ```
 
-### Install vim-plug to manage neovim plugins
+### Install and configure vim plug-ins
 
-Install [vim-plug](https://github.com/junegunn/vim-plug) to manage neovim plugins
+See [this](https://github.com/ThePrimeagen/init.lua) to configure neovim or clone this to ~/.config/nvim
 
 ```bash
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+git clone git@github.com:ThePrimeagen/init.lua ~/.config/nvim
 ```
 
-### Create nvim init file
-
-Copy the file [init.vim](configs/init.vim) to `~/.config/nvim` and then install the plugins. open vim and run the command `PlugInstall` (type :PlugInstall).
+Set colortheme to [rasmus](https://github.com/kvrohit/rasmus.nvim)
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
