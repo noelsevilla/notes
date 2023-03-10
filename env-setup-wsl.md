@@ -68,6 +68,8 @@ Now that you have a linux environment thru WSL, you can set this up using the [e
 
 ## Enable GUI on WSL
 
+**NOTE: This is no longer required for WSL running from Windows 11.
+
 Enable running a GUI from WSL on Windows. ie running a browser test.
 
 ### [VcXsrc](https://sourceforge.net/projects/vcxsrv/)

@@ -2,8 +2,7 @@
 
 - [Setup WSL dev environment](#setup-wsl-dev-environment)
   - [neovim](#neovim)
-    - [Install vim-plug to manage neovim plugins](#install-vim-plug-to-manage-neovim-plugins)
-    - [Create nvim init file](#create-nvim-init-file)
+    - [Install and configure vim plug-ins](#install-and-configure-vim-plug-ins)
   - [ssh-ident](#ssh-ident)
   - [Node](#node)
     - [nvm](#nvm)
@@ -63,7 +62,7 @@ Install neovim and set as default editor
 >~/.local/share/nvim/swap/
 
 ```bash
-sudo apt-get update && sudo apt-get install neovim
+sudo apt update && sudo apt install neovim
 update-alternatives --set editor /usr/bin/nvim
 
 # create vim alias to point to nvim
@@ -99,17 +98,11 @@ Install to manage node versions.
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# check nvm installed
-command -v nvm
+# list available nodejs versions
+nvm ls-remote
 
-# install node
-nvm install node
-
-# or with a specific version
-nvm install node 16.13.1
-
-# it default to the first node installed but to use a different version
-nvm use 16.13.1
+# install latest LTS version
+nvm install --lts
 
 # install yarn globally
 npm install -g yarn
@@ -152,6 +145,10 @@ sdk version
 Using [SDKMan](##SDKMan), install a version of Java
 
 ```bash
+# check available versions of java from sdk
+sdk list java
+
+# install a version of java
 sdk install java 17.0.1-open
 
 # check java working properly
@@ -181,19 +178,12 @@ kotlin -version
 
 ## [DotNet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
 
-Pick the matching version of Ubuntu
-
 ```bash
-# Get the Microsoft package
-wget https://packages.microsoft.com/config/ubuntu/21.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-
 # Install SDK
-sudo apt-get update; \
-  sudo apt-get install -y apt-transport-https && \
-  sudo apt-get update && \
-  sudo apt-get install -y dotnet-sdk-5.0
+sudo apt update && \
+  sudo apt install -y apt-transport-https && \
+  sudo apt update && \
+  sudo apt install -y dotnet-sdk-6.0
 
 # check dotnet working properly
 dotnet --version
@@ -231,9 +221,10 @@ Using pyenv to manage python installations and versions
 
 ```bash
 # install required linraries to build python later on first
-sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt update && \
+  sudo apt install make build-essential libssl-dev zlib1g-dev \
+  libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+  libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # then install pyenv
 curl https://pyenv.run | bash
@@ -243,16 +234,14 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
-# check pyenv is working properly
-pyenv
+# list available versions of python
+pyenv install -l
 
 # install a python version
 pyenv install 3.9.7
 
 # set a default python version thru pyenv
-vim ~/.pyenv/version
-
-# enter the version to use and save file
+echo "3.9.7" >> ~/.pyenv/version
 ```
 
 ## [Rust](https://www.rust-lang.org/tools/install)
@@ -290,6 +279,9 @@ Using asdf to manage go
 ```bash
 asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 
+# check available versions of go
+asdf list all golangrw
+
 asdf install golang 1.17.6
 asdf global golang 1.17.6
 
@@ -304,7 +296,7 @@ Using asdf to manage elixir versions
 
 ```bash
 # install dependencies first for erland
-apt-get -y install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev
+sudo apt install -y build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev
 
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf install erlang 24.0.5
@@ -398,8 +390,8 @@ Install docker engine using the repository
 
 ```bash
 # Update package index and install required os packages
-sudo apt-get update
-sudo apt-get install \
+sudo apt update
+sudo apt install \
     ca-certificates \
     curl \
     gnupg \
@@ -414,14 +406,14 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Install docker engine
-sudo apt-get update
+sudo apt update
 
 # NOTE: sometime if you get 'Release file not found' error when running apt update, 
 # it could be that the ubuntu release in the docker.list in /etc/apt/sources.list.d/ is incorrect.
 # Update docker.list with the correct release name ie from 'Una' to 'Focal'
 
 # Continue with the install
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt install docker-ce docker-ce-cli containerd.io
 
 # Test docker engine is working by running a hello-world image
 sudo docker run hello-world
@@ -528,6 +520,9 @@ helm version
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+
+# install docker ecr login helper
+sudo apt install amazon-ecr-credential-helper
 ```
 
 #### Configure AWS profile
@@ -574,10 +569,10 @@ unset AWS_PROFILE
 # Add amazon workspaces repo
 wget -q -O - https://workspaces-client-linux-public-key.s3-us-west-2.amazonaws.com/ADB332E7.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://d3nt0h4h6pmmc4.cloudfront.net/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/amazon-workspaces-clients.list
-sudo apt-get update
+sudo apt update
 
 # Install workspace client
-sudo apt-get install workspacesclient
+sudo apt install workspacesclient
 ```
 
 ## [Terraform](https://www.terraform.io/intro)

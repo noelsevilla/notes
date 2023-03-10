@@ -17,6 +17,9 @@
   - [Rust](#rust)
   - [Helm](#helm)
   - [Go](#go)
+  - [AWS](#aws)
+    - [AWS CLI](#aws-cli)
+    - [Amazon ECR Credential Helper](#amazon-ecr-credential-helper)
 
 ## [Chocolatey](https://chocolatey.org/install)
 
@@ -48,20 +51,17 @@ Download the setup.zip file from the latest release, extract and run setup as ad
 Run terminal as administrator to run and use nvm.
 
 ```bash
-# check nvm installed
-nvm
+# list available nodejs versions
+nvm ls-remote
 
-# install a version of node
-nvm install 16.13.0
+# install latest LTS version
+nvm install --lts
 
-# use a version of node
-nvm use 16.13.0
-
-# check if yarn is installed
-yarn -v
-
-# if yarn not installed, install it globally
+# install yarn globally
 npm install -g yarn
+
+# check yarn working properly
+yarn --version
 ```
 
 ## [Ruby](https://www.ruby-lang.org/en/)
@@ -107,8 +107,8 @@ add user path variable
 ```
 
 ```bash
-# check pyenv working
-pyenv
+# list all available versions
+pyenv install --list
 
 # install a version of python
 pyenv install 3.9.3
@@ -199,3 +199,13 @@ choco install golang --version 1.17.13
 # check go is working
 go version
 ```
+
+## AWS
+
+### [AWS CLI](https://aws.amazon.com/cli/)
+
+Download the windows installer for aws cli.
+
+### [Amazon ECR Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper/releases)
+
+Download the windows installer for `docker credential ecr login` here https://github.com/awslabs/amazon-ecr-credential-helper/releases
