@@ -14,3 +14,7 @@ fi
 
 # increase nodejs max memory
 export NODE_OPTIONS="--max-old-space-size=4096"
+
+# set python pipenv to create venv in project directory
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_VERBOSITY=1
