@@ -71,10 +71,18 @@ echo "alias vim='nvim'" >> ~/.bashrc
 
 ### Install and configure vim plug-ins
 
+Install packer for managing neovim plugins
+```sh
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
 Create an nvim directory in ~/.config and copy the nvim configs from ./configs/nvim
 ```sh
 mkdir -p ~/.config/nvim && cp -r ./configs/nvim/. ~/.config/nvim
 ```
+
+Open ~/.config/nvim from neovim and run `:PackerSync`
 
 See [this](https://github.com/ThePrimeagen/init.lua) to configure neovim or clone this to ~/.config/nvim
 
