@@ -71,6 +71,11 @@ echo "alias vim='nvim'" >> ~/.bashrc
 
 ### Install and configure vim plug-ins
 
+Create an nvim directory in ~/.config and copy the nvim configs from ./configs/nvim
+```sh
+mkdir -p ~/.config/nvim && cp -r ./configs/nvim/. ~/.config/nvim
+```
+
 See [this](https://github.com/ThePrimeagen/init.lua) to configure neovim or clone this to ~/.config/nvim
 
 ```bash
