@@ -14,6 +14,7 @@
     - [ddrescue for iso images](#ddrescue-for-iso-images)
   - [Git](#git)
     - [Worktree](#worktree)
+    - [Increase qemu/kvm disk size](#increase-qemukvm-disk-size)
 
 ## Useful commands
 
@@ -94,3 +95,7 @@ Articles about and on how to use worktrees for workspace and branch management
 
 [How to use git worktree and in a clean way](https://morgan.cugerone.com/blog/how-to-use-git-worktree-and-in-a-clean-way/)
 [Worktrees that fetches remote branches from bare repository](https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/)
+
+### Increase qemu/kvm disk size
+
+[Increase disk size of a vm and expanding windows vm disk size](https://techglimpse.com/expand-windows-10-vm-virtual-disk-size-qemu-kvm/)
