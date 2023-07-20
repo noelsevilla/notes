@@ -1,0 +1,16 @@
+#!/bin/sh
+
+command -v aws >/dev/null 2>&1 || { echo >&2 "Error: aws cli is required but is not installed. Exiting"; exit 1; }
+
+if [ -z "$1" ]; then
+    echo "Error: A repository name is required as an argument. ie \"./get-ecr-image 'this/is/the/repo/name'\""
+    exit 1
+fi
+
+if [ -z "${AWS_DOMAIN_OWNER}" ]; then
+  echo "Error: An AWS domain owner env is required but is not set. Exiting..."
+  exit 1
+fi
+
+aws ecr describe-images --registry-id "$AWS_DOMAIN_OWNER" --repository-name "$1" --query 'reverse(sort_by(imageDetails,& imagePushedAt))[*]' |\
+  jq 'map({digest: .imageDigest, tags: .imageTags, pushedAt: .imagePushedAt, lastPulled: .lastRecordedPullTime}) | limit(10;.[])'
