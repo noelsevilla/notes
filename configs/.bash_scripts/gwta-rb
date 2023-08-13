@@ -16,3 +16,5 @@ git worktree add "$1"
 cd "$1" || exit
 git branch --set-upstream-to origin/"$1"
 git reset --hard origin/"$1"
+rm .git
+echo "gitdir: ../.repo/worktrees/$1" >> .git
