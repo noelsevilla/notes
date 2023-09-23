@@ -21,6 +21,8 @@ alias gwtl='git worktree list'
 alias gwtr='git worktree remove'
 alias gwta='git worktree add'
 alias gwtp='git worktree prune'
+alias gsh='git stash'
+alias gshp='git stash pop'
 
 # aws
 alias aws-get-identity='aws sts get-caller-identity'
