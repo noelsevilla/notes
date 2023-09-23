@@ -3,9 +3,17 @@
 		"scope": "javascript,typescript",
 		"prefix": "clog",
 		"body": [
-			"console.log('$1');"
+			"console.log($1);"
 		],
 		"description": "Console log"
+	},
+	"json.stringify": {
+		"scope": "javascript,typescript",
+		"prefix": "jstring",
+		"body": [
+			"JSON.stringify($1, null, 2)"
+		],
+		"description": "JSON stingify"
 	},
 	"snippets.js.test.hook.before": {
 		"scope": "javascript,typescript",
