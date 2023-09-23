@@ -26,14 +26,6 @@
 
 [Unicode character table](https://unicode-table.com/en)
 
-### Set default linux editor
-
-```bash
-update-alternatives --list editor
-
-update-alternatives --set editor /usr/bin/vim.basic
-```
-
 ## SSH
 
 ### [Generate SSH keys for Github (or other version control)](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
@@ -72,6 +64,27 @@ git clone git@github.com-organisation2:organisation2/some-org-repo.git
 
 ## Linux
 
+### Set default linux editor
+
+```bash
+update-alternatives --list editor
+
+update-alternatives --set editor /usr/bin/vim.basic
+```
+
+### File Permissions Notation
+|||
+|-|-|
+| 400 | read by owner |
+| 040 | read by group |
+| 004 | read by anybody |
+| 200 | write by owner |
+| 020 | write by group |
+| 002 | write by anybody |
+| 100 | execute by owner |
+| 010 | execute by group |
+| 001 | execute by anybody |
+
 ### Find files
 
 Find files in linux using [find](https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/).
@@ -80,6 +93,11 @@ Find files in linux using [find](https://www.plesk.com/blog/various/find-files-i
 
 [How to rename files in linux](https://linuxize.com/post/how-to-rename-files-in-linux/)
 [How to rename multiple files on linux](https://linuxconfig.org/how-to-rename-multiple-files-on-linux)
+
+### Increase qemu/kvm disk size
+
+[Increase disk size of a vm and expanding windows vm disk size](https://techglimpse.com/expand-windows-10-vm-virtual-disk-size-qemu-kvm/)
+
 
 ### ddrescue for iso images
 
@@ -95,7 +113,3 @@ Articles about and on how to use worktrees for workspace and branch management
 
 [How to use git worktree and in a clean way](https://morgan.cugerone.com/blog/how-to-use-git-worktree-and-in-a-clean-way/)
 [Worktrees that fetches remote branches from bare repository](https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/)
-
-### Increase qemu/kvm disk size
-
-[Increase disk size of a vm and expanding windows vm disk size](https://techglimpse.com/expand-windows-10-vm-virtual-disk-size-qemu-kvm/)
