@@ -194,12 +194,10 @@ kotlin -version
 ```bash
 # Install SDK
 sudo apt update && \
-  sudo apt install -y apt-transport-https && \
-  sudo apt update && \
-  sudo apt install -y dotnet-sdk-6.0
+  sudo apt install -y dotnet-sdk-7.0
 
 # check dotnet working properly
-dotnet --version
+dotnet --info
 ```
 
 ## [Ruby](https://www.ruby-lang.org/en/)
