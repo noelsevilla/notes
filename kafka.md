@@ -53,9 +53,9 @@ Download the .tgz file for the latest version [here](https://www.apache.org/dyn/
 ## Linux
 Run the commands:
 ```bash
-wget https://downloads.apache.org/kafka/3.2.1/kafka_2.12-3.2.1.tgz -P ~/
-mkdir -p ~/kafka && tar -zxvf ~/kafka_2.12-3.2.1.tgz -C ~/kafka
-echo 'export PATH="$HOME/kafka/kafka_2.12-3.2.1/bin:$PATH"' >> ~/.bashrc
+wget https://downloads.apache.org/kafka/3.5.1/kafka_2.13-3.5.1.tgz -P ~/ && \
+mkdir -p ~/kafka && tar -zxvf ~/kafka_2.13-3.5.1.tgz -C ~/kafka && \
+echo 'export PATH="$HOME/kafka/kafka_2.13-3.5.1/bin:$PATH"' >> ~/.bashrc
 ```
 
 # Subscribe to a kafka topic

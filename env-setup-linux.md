@@ -626,8 +626,8 @@ This also adds a `jmeter` alias that runs this jmeter that's downloaded. Remembe
 
 
 ```bash
-wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.5.zip -P ~/
-mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter
+wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.5.zip -P ~/ && \
+mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter && \
 echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
 ```
 
