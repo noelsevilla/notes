@@ -1,8 +1,9 @@
-# Setup WSL dev environment
+# Setup Linux environment
 
-- [Setup WSL dev environment](#setup-wsl-dev-environment)
+- [Setup Linux environment](#setup-linux-environment)
   - [neovim](#neovim)
     - [Install and configure vim plug-ins](#install-and-configure-vim-plug-ins)
+  - [cmake](#cmake)
   - [ssh-ident](#ssh-ident)
   - [Node](#node)
     - [nvm](#nvm)
@@ -91,6 +92,26 @@ git clone git@github.com:ThePrimeagen/init.lua ~/.config/nvim
 ```
 
 Set colortheme to [rasmus](https://github.com/kvrohit/rasmus.nvim)
+
+## [cmake](https://github.com/kitware/cmake)
+
+```bash
+sudo apt update && sudo apt install -y build-essential libssl-dev
+cd /tmp && wget https://github.com/kitware/cmake/releases/download/v3.27.7/cmake-3.27.7.tar.gz
+tar -zxvf cmake-3.27.7.tar.gz && cd cmake-3.27.7
+
+# these would take a while
+./bootstrap
+make
+
+sudo make install
+
+# check working
+cmake --version
+
+# remove install files
+rm -rf cmake-3.27.7 && rm -f cmake-3.27.7.tar.gz
+```
 
 ## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
