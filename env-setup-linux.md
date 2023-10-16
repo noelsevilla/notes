@@ -460,6 +460,9 @@ sudo usermod -aG docker $USER
 newgrp docker
 newgrp $USER
 
+# Add host.docker.internal to /etc/hosts
+sudo echo "127.0.0.1 host.docker.internal" | sudo tee -a /etc/hosts
+
 # Log out and back in for the changes to take effect 
 ```
 
