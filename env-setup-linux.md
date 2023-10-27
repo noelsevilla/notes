@@ -210,17 +210,6 @@ sdk install kotlin 1.5.30
 kotlin -version
 ```
 
-## [DotNet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
-
-```bash
-# Install SDK
-sudo apt update && \
-  sudo apt install -y dotnet-sdk-7.0
-
-# check dotnet working properly
-dotnet --info
-```
-
 ## [Ruby](https://www.ruby-lang.org/en/)
 
 ### [rbenv](https://github.com/rbenv/rbenv)
@@ -311,13 +300,46 @@ Using asdf to manage go
 ```bash
 asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 
-# check available versions of go
+# check available versions
 asdf list all golangrw
 
 asdf install golang 1.17.6
 asdf global golang 1.17.6
 
 go version
+```
+
+### [dotnet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
+
+```bash
+asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
+
+# check available versions
+asdf list all dotnet-core
+
+asdf install dotnet-core 7.0.403
+asdf global dotnet-core 7.0.403
+
+# check dotnet working properly
+dotnet --info
+```
+
+### [lua](https://www.lua.org/)
+
+```bash
+asdf plugin-add lua https://github.com/Stratus3D/asdf-lua.git
+
+# check available versions
+asdf list all lua
+
+asdf install lua 5.4.6
+asdf global lua 5.4.6
+
+echo "lua 5.4.6" >> ~/.tool-versions
+
+# check lua working properly
+lua -v
+
 ```
 
 ### [Elixir](https://elixir-lang.org/)

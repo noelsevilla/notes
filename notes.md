@@ -105,6 +105,10 @@ Find files in linux using [find](https://www.plesk.com/blog/various/find-files-i
 ddrescue -D --force /path/to/iso/image /dev/sdx/path/to/usb
 ```
 
+### Remove apt repository
+
+Remove file entry of application in directory `/etc/apt/sources.list.d`
+
 ## Git
 
 ### Worktree
