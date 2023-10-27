@@ -23,6 +23,7 @@ alias gwta='git worktree add'
 alias gwtp='git worktree prune'
 alias gsh='git stash'
 alias gshp='git stash pop'
+alias gd='git diff'
 
 # aws
 alias aws-get-identity='aws sts get-caller-identity'
@@ -52,7 +53,7 @@ alias mini-docker='eval $(minikube docker-env)'
 alias cl='clear'
 alias reload='source ~/.bashrc'
 alias work='cd ~/work'
-alias update-os='sudo apt-get update && sudo apt-get upgrade -y && sudo apt autoremove -y'
+alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias pytest='pytest -s --disable-warnings --tb=short -m'
 alias dbeaver='dbeaver &> /dev/null & '
 
