@@ -24,6 +24,8 @@ alias gwtp='git worktree prune'
 alias gsh='git stash'
 alias gshp='git stash pop'
 alias gd='git diff'
+alias gcom='git commit'
+alias gcoma='git commit --amend --no-edit'
 
 # aws
 alias aws-get-identity='aws sts get-caller-identity'
