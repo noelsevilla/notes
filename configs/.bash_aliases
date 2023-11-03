@@ -57,12 +57,18 @@ alias mini-docker='eval $(minikube docker-env)'
 alias c='cargo'
 alias cr='cargo run'
 
+# python
+alias pi='pipenv'
+alias pirun='pipenv run python'
+alias po='poetry'
+alias porun='po run python'
+alias pytest='pytest -s --disable-warnings --tb=short -m'
+
 # other alias
 alias cl='clear'
 alias reload='source ~/.bashrc'
 alias work='cd ~/work'
 alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
-alias pytest='pytest -s --disable-warnings --tb=short -m'
 alias dbeaver='dbeaver &> /dev/null & '
 
 function idea() {
