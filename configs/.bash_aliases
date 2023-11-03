@@ -53,6 +53,10 @@ alias compose='d compose'
 alias kube='minikube kubectl --'
 alias mini-docker='eval $(minikube docker-env)'
 
+# rust
+alias c='cargo'
+alias cr='cargo run'
+
 # other alias
 alias cl='clear'
 alias reload='source ~/.bashrc'
