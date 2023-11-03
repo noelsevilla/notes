@@ -64,6 +64,11 @@ alias po='poetry'
 alias porun='po run python'
 alias pytest='pytest -s --disable-warnings --tb=short -m'
 
+# gradle
+alias gr='./gradlew'
+alias gr-run='gr bootRun'
+alias gr-run-local='gr-run --args="--spring.profiles.active=local"'
+
 # other alias
 alias cl='clear'
 alias reload='source ~/.bashrc'
