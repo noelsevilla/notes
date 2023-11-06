@@ -13,14 +13,16 @@
     - [Java](#java)
     - [Gradle](#gradle)
     - [Kotlin](#kotlin)
-  - [DotNet](#dotnet)
   - [Ruby](#ruby)
     - [rbenv](#rbenv)
   - [Python](#python)
     - [pyenv](#pyenv)
+    - [poetry](#poetry)
   - [Rust](#rust)
   - [asdf](#asdf)
     - [Go](#go)
+    - [dotnet](#dotnet)
+    - [lua](#lua)
     - [Elixir](#elixir)
       - [erlang](#erlang)
       - [elixir](#elixir-1)
@@ -263,6 +265,22 @@ pyenv install 3.9.7
 
 # set a default python version thru pyenv
 echo "3.9.7" >> ~/.pyenv/version
+```
+
+### [poetry](https://python-poetry.org/)
+
+Install poetry to manage python project dependencies and publishing
+
+```bash
+# install
+curl -sSL https://install.python-poetry.org | python -
+echo 'export PATH="~/.local/bin:$PATH"' >> ~/.bashrc
+
+# check python is installed
+poerty --version
+
+# set poetry to create .venv in project directory
+poetry config virtualenvs.in-project true
 ```
 
 ## [Rust](https://www.rust-lang.org/tools/install)
