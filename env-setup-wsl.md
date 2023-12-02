@@ -1,19 +1,18 @@
-# Setup [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
+<h1>Setup Windows Subsystem for Linux</h1>
 
-- [Setup Windows Subsystem for Linux](#setup-windows-subsystem-for-linux)
-  - [Prerequisites](#prerequisites)
-  - [Set WSL2 as the default version](#set-wsl2-as-the-default-version)
-  - [Install a Linux distribution](#install-a-linux-distribution)
-    - [Upgrade linux packages](#upgrade-linux-packages)
-  - [Install Windows Terminal](#install-windows-terminal)
-  - [Setup Linux environment](#setup-linux-environment)
-  - [Enable GUI on WSL](#enable-gui-on-wsl)
-    - [VcXsrc](#vcxsrc)
-    - [Configure WSL](#configure-wsl)
+- [Prerequisites](#prerequisites)
+- [Set WSL2 as the default version](#set-wsl2-as-the-default-version)
+- [Install a Linux distribution](#install-a-linux-distribution)
+  - [Upgrade linux packages](#upgrade-linux-packages)
+- [Install Windows Terminal](#install-windows-terminal)
+- [Setup Linux environment](#setup-linux-environment)
+- [Enable GUI on WSL](#enable-gui-on-wsl)
+  - [VcXsrc](#vcxsrc)
+  - [Configure WSL](#configure-wsl)
 
-## Prerequisites
+# Prerequisites
 
-Check if wsl is already installed by running from the terminal:
+Check if [wsl](https://docs.microsoft.com/en-us/windows/wsl/about) is already installed by running from the terminal:
 
 ```bash
 wsl
@@ -25,7 +24,7 @@ wsl
 
 If it's already installed, then proceed to the next section. Otherwise, continue with installation of WSL by following the steps from [manually install wsl instructions](https://docs.microsoft.com/en-us/windows/wsl/install-manual).
 
-## Set WSL2 as the default version
+# Set WSL2 as the default version
 
 Use the later [WSL2 version](https://aka.ms/wsl2).
 
@@ -33,7 +32,7 @@ Use the later [WSL2 version](https://aka.ms/wsl2).
 wsl --set-default-version 2
 ```
 
-## Install a Linux distribution
+# Install a Linux distribution
 
 Install a linux distribution of choice. This installs Ubuntu 20.04 LTS
 
@@ -45,7 +44,7 @@ Follow through the prompts, you will be ask to create a user account to run the 
 
 Once done, you should have a terminal running in Ubuntu.
 
-### Upgrade linux packages
+## Upgrade linux packages
 
 From the open terminal for Ubuntu, update and upgrade installed packages by running:
 
@@ -56,23 +55,23 @@ From the open terminal for Ubuntu, update and upgrade installed packages by runn
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-## Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/install)
+# Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/install)
 
 Windows terminal is a handy app to run miltiple shells including Ubuntu which we installed earlier.
 
 You can install it from the [Windows store here](https://www.microsoft.com/en-nz/p/windows-terminal/9n0dx20hk701?rtc=1).
 
-## Setup Linux environment
+# Setup Linux environment
 
 Now that you have a linux environment thru WSL, you can set this up using the [env-setup-linux.md guide](https://github.com/noelsevilla/notes/blob/master/configs/env-setup-linux.md).
 
-## Enable GUI on WSL
+# Enable GUI on WSL
 
 **NOTE: This is no longer required for WSL running from Windows 11.
 
 Enable running a GUI from WSL on Windows. ie running a browser test.
 
-### [VcXsrc](https://sourceforge.net/projects/vcxsrv/)
+## [VcXsrc](https://sourceforge.net/projects/vcxsrv/)
 
 This enables the app running from WSL to display in Windows. Download and install it from [here](https://sourceforge.net/projects/vcxsrv/).
 
@@ -82,7 +81,7 @@ Right click on the app icon and select the options `Multiple windows` and `Start
 
 Open the app and from `extra settings` disable `access control`.
 
-### Configure WSL
+## Configure WSL
 
 Log in to your linux distro (ie Ubuntu).
 

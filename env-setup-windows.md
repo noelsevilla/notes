@@ -1,27 +1,26 @@
-# Setup Windows dev environment
+<h1>Setup Windows dev environment</h1>
 
-- [Setup Windows dev environment](#setup-windows-dev-environment)
-  - [Chocolatey](#chocolatey)
-  - [Git](#git)
-  - [C++ build tools](#c-build-tools)
-  - [Node](#node)
-    - [nvm](#nvm)
-  - [Ruby](#ruby)
-    - [rbenv](#rbenv)
-  - [Python](#python)
-    - [pyenv](#pyenv)
-  - [SDKMan](#sdkman)
-    - [Java](#java)
-    - [Gradle](#gradle)
-    - [Kotlin](#kotlin)
-  - [Rust](#rust)
-  - [Helm](#helm)
-  - [Go](#go)
-  - [AWS](#aws)
-    - [AWS CLI](#aws-cli)
-    - [Amazon ECR Credential Helper](#amazon-ecr-credential-helper)
+- [Chocolatey](#chocolatey)
+- [Git](#git)
+- [C++ build tools](#c-build-tools)
+- [Node](#node)
+  - [nvm](#nvm)
+- [Ruby](#ruby)
+  - [rbenv](#rbenv)
+- [Python](#python)
+  - [pyenv](#pyenv)
+- [SDKMan](#sdkman)
+  - [Java](#java)
+  - [Gradle](#gradle)
+  - [Kotlin](#kotlin)
+- [Rust](#rust)
+- [Helm](#helm)
+- [Go](#go)
+- [AWS](#aws)
+  - [AWS CLI](#aws-cli)
+  - [Amazon ECR Credential Helper](#amazon-ecr-credential-helper)
 
-## [Chocolatey](https://chocolatey.org/install)
+# [Chocolatey](https://chocolatey.org/install)
 
 Windows package manager. Will require for installing some tools.
 
@@ -32,19 +31,19 @@ Follow instructions from [here](https://chocolatey.org/install).
 choco -v
 ```
 
-## [Git](https://git-scm.com/downloads)
+# [Git](https://git-scm.com/downloads)
 
 Install git and git bash for windows.
 
 **NOTE: Install git to C:\git instead of C:\Program Files. This allows us to perform symlinks later on this setup for [SDKMan](#sdkman).**
 
-## [C++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+# [C++ build tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
 Download and install C++ build tools from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
 
-## [Node](https://nodejs.org/en/)
+# [Node](https://nodejs.org/en/)
 
-### [nvm](https://github.com/coreybutler/nvm-windows/releases)
+## [nvm](https://github.com/coreybutler/nvm-windows/releases)
 
 Download the setup.zip file from the latest release, extract and run setup as administrator.
 
@@ -64,9 +63,9 @@ npm install -g yarn
 yarn --version
 ```
 
-## [Ruby](https://www.ruby-lang.org/en/)
+# [Ruby](https://www.ruby-lang.org/en/)
 
-### [rbenv](https://github.com/nak1114/rbenv-win)
+## [rbenv](https://github.com/nak1114/rbenv-win)
 
 Download and run the batch file from [here](https://gist.github.com/nak1114/7ea63204203883c5884d)
 
@@ -82,9 +81,9 @@ rbenv global 2.6.6-x64
 rbenv rehash
 ```
 
-## [Python](https://www.python.org/)
+# [Python](https://www.python.org/)
 
-### [pyenv](https://github.com/pyenv-win/pyenv-win)
+## [pyenv](https://github.com/pyenv-win/pyenv-win)
 
 git clone pyenv
 
@@ -118,7 +117,7 @@ pyenv global 3.9.3
 pyenv rehash
 ```
 
-## [SDKMan](https://sdkman.io/)
+# [SDKMan](https://sdkman.io/)
 
 Use this to install SDKs for the JVM like Java and Kotlin
 
@@ -134,7 +133,7 @@ curl -s "https://get.sdkman.io" | bash
 sdk version
 ```
 
-### [Java](https://www.w3schools.com/java/java_intro.asp)
+## [Java](https://www.w3schools.com/java/java_intro.asp)
 
 Using [SDKMan](##SDKMan), install a version of Java
 
@@ -146,7 +145,7 @@ sdk use 17.0.1-open
 java --version
 ```
 
-### [Gradle](https://gradle.org/)
+## [Gradle](https://gradle.org/)
 
 Using [SDKMan](##SDKMan), install a version of Gradle
 
@@ -157,7 +156,7 @@ sdk install gradle 7.3
 gradle --version
 ```
 
-### [Kotlin](https://kotlinlang.org/)
+## [Kotlin](https://kotlinlang.org/)
 
 Using [SDKMan](###SDKMan), install a version of Kotlin
 ```bash
@@ -168,7 +167,7 @@ source ~/.bashrc
 kotlin -version
 ```
 
-## [Rust](https://www.rust-lang.org/tools/install)
+# [Rust](https://www.rust-lang.org/tools/install)
 
 Download and install from installer. make sure c++ build tools are installed first.
 
@@ -178,7 +177,7 @@ rustup --version
 rustc --version
 ```
 
-## [Helm](https://helm.sh/)
+# [Helm](https://helm.sh/)
 
 Install helm from chocolatey
 
@@ -189,7 +188,7 @@ choco install kubernetes-helm
 helm version
 ```
 
-## [Go](https://go.dev/)
+# [Go](https://go.dev/)
 
 Install golang from chocolatey
 
@@ -200,12 +199,12 @@ choco install golang --version 1.17.13
 go version
 ```
 
-## AWS
+# AWS
 
-### [AWS CLI](https://aws.amazon.com/cli/)
+## [AWS CLI](https://aws.amazon.com/cli/)
 
 Download the windows installer for aws cli.
 
-### [Amazon ECR Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper/releases)
+## [Amazon ECR Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper/releases)
 
 Download the windows installer for `docker credential ecr login` here https://github.com/awslabs/amazon-ecr-credential-helper/releases

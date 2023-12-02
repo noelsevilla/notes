@@ -1,3 +1,5 @@
+<h1>Kafka</h1>
+
 Kafka is a platform for handling data feeds. Here's a [short clip about kafka](https://youtu.be/FKgi3n-FyNU) and a [playlist about kafka](https://www.youtube.com/playlist?list=PL1vMgwLWNQiBmdGTXM0jR4fImrs3YHJGJ) for futher reading/watching.
 
 This guide is about consuming kafka topic messages as a client from your local environment. To do that, we first need to download and have the client running locally.

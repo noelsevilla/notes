@@ -1,6 +1,9 @@
-- [Upgrade nodejs and nvm](#upgrade-nodejs-and-nvm)
-  - [Check node version](#check-node-version)
-  - [Install and use node version](#install-and-use-node-version)
+<h1>Upgrade nodejs and nvm</h1>
+
+This notes how to upgrade [nodejs](https://nodejs.org/en/) and project dependencies and [nvm](https://github.com/nvm-sh/nvm).
+
+- [Check node version](#check-node-version)
+- [Install and use node version](#install-and-use-node-version)
 - [Update node js project dependencies](#update-node-js-project-dependencies)
   - [Check outdated packages](#check-outdated-packages)
   - [Update all packages to latest versions](#update-all-packages-to-latest-versions)
@@ -8,11 +11,7 @@
     - [Update package to latest version](#update-package-to-latest-version)
     - [Update package to specific version](#update-package-to-specific-version)
 
-# Upgrade nodejs and nvm
-
-This notes how to upgrade [nodejs](https://nodejs.org/en/) and project dependencies and [nvm](https://github.com/nvm-sh/nvm).
-
-## Check node version
+# Check node version
 
 From a terminal, check the current version of node running
 
@@ -32,7 +31,7 @@ And to check versions available to install from remote
 nvm ls-remote
 ```
 
-## Install and use node version
+# Install and use node version
 
 Get a list of avaiable node version in nvm to install. In the case of updating node, see if there is a version higher than the current version by running the script earlier.
 

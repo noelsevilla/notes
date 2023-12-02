@@ -1,63 +1,62 @@
-# Setup Linux environment
+<h1>Setup Linux environment</h1>
 
-- [Setup Linux environment](#setup-linux-environment)
-  - [neovim](#neovim)
-    - [Install and configure vim plug-ins](#install-and-configure-vim-plug-ins)
-  - [cmake](#cmake)
-  - [ssh-ident](#ssh-ident)
-  - [Node](#node)
-    - [nvm](#nvm)
-    - [Options](#options)
-      - [Set memory use](#set-memory-use)
-  - [SDKMan](#sdkman)
-    - [Java](#java)
-    - [Gradle](#gradle)
-    - [Kotlin](#kotlin)
-  - [Ruby](#ruby)
-    - [rbenv](#rbenv)
-  - [Python](#python)
-    - [pyenv](#pyenv)
-    - [poetry](#poetry)
-  - [Rust](#rust)
-  - [asdf](#asdf)
-    - [Go](#go)
-    - [dotnet](#dotnet)
-    - [lua](#lua)
-    - [Elixir](#elixir)
-      - [erlang](#erlang)
-      - [elixir](#elixir-1)
-  - [GPG and Password manager with pass](#gpg-and-password-manager-with-pass)
-    - [GPG](#gpg)
-    - [Pass](#pass)
-  - [IDE](#ide)
-    - [IntelliJ](#intellij)
-  - [Docker and Kubernetes](#docker-and-kubernetes)
-    - [Docker](#docker)
-      - [Docker Credential Helper](#docker-credential-helper)
-        - [Multiple docker configs](#multiple-docker-configs)
-    - [Kubernetes with Minikube](#kubernetes-with-minikube)
-    - [Kubernetes](#kubernetes)
-    - [Helm](#helm)
-  - [AWS](#aws)
-    - [AWS CLI](#aws-cli)
-      - [Configure AWS profile](#configure-aws-profile)
-      - [Multiple AWS Profile](#multiple-aws-profile)
-    - [AWS Workspaces](#aws-workspaces)
-  - [Terraform](#terraform)
-  - [MongoDB](#mongodb)
-  - [QEMU](#qemu)
-  - [JMeter](#jmeter)
-  - [Browser](#browser)
-  - [DBeaver](#dbeaver)
-  - [Postman](#postman)
-    - [Uninstall](#uninstall)
-  - [ODBC](#odbc)
-    - [Postgres](#postgres)
-    - [Informix](#informix)
-      - [Install](#install)
-      - [Configure](#configure)
+- [neovim](#neovim)
+  - [Install and configure vim plug-ins](#install-and-configure-vim-plug-ins)
+- [cmake](#cmake)
+- [ssh-ident](#ssh-ident)
+- [Node](#node)
+  - [nvm](#nvm)
+  - [Options](#options)
+    - [Set memory use](#set-memory-use)
+- [SDKMan](#sdkman)
+  - [Java](#java)
+  - [Gradle](#gradle)
+  - [Kotlin](#kotlin)
+- [Ruby](#ruby)
+  - [rbenv](#rbenv)
+- [Python](#python)
+  - [pyenv](#pyenv)
+  - [poetry](#poetry)
+- [Rust](#rust)
+- [asdf](#asdf)
+  - [Go](#go)
+  - [dotnet](#dotnet)
+  - [lua](#lua)
+  - [Elixir](#elixir)
+    - [erlang](#erlang)
+    - [elixir](#elixir-1)
+- [GPG and Password manager with pass](#gpg-and-password-manager-with-pass)
+  - [GPG](#gpg)
+  - [Pass](#pass)
+- [IDE](#ide)
+  - [IntelliJ](#intellij)
+- [Docker and Kubernetes](#docker-and-kubernetes)
+  - [Docker](#docker)
+    - [Docker Credential Helper](#docker-credential-helper)
+      - [Multiple docker configs](#multiple-docker-configs)
+  - [Kubernetes with Minikube](#kubernetes-with-minikube)
+  - [Kubernetes](#kubernetes)
+  - [Helm](#helm)
+- [AWS](#aws)
+  - [AWS CLI](#aws-cli)
+    - [Configure AWS profile](#configure-aws-profile)
+    - [Multiple AWS Profile](#multiple-aws-profile)
+  - [AWS Workspaces](#aws-workspaces)
+- [Terraform](#terraform)
+- [MongoDB](#mongodb)
+- [QEMU](#qemu)
+- [JMeter](#jmeter)
+- [Browser](#browser)
+- [DBeaver](#dbeaver)
+- [Postman](#postman)
+  - [Uninstall](#uninstall)
+- [ODBC](#odbc)
+  - [Postgres](#postgres)
+  - [Informix](#informix)
+    - [Install](#install)
+    - [Configure](#configure)
 
-## neovim
+# neovim
 
 Install neovim and set as default editor
 
@@ -72,7 +71,7 @@ update-alternatives --set editor /usr/bin/nvim
 echo "alias vim='nvim'" >> ~/.bashrc
 ```
 
-### Install and configure vim plug-ins
+## Install and configure vim plug-ins
 
 Install packer for managing neovim plugins
 ```sh
@@ -95,7 +94,7 @@ git clone git@github.com:ThePrimeagen/init.lua ~/.config/nvim
 
 Set colortheme to [rasmus](https://github.com/kvrohit/rasmus.nvim)
 
-## [cmake](https://github.com/kitware/cmake)
+# [cmake](https://github.com/kitware/cmake)
 
 ```bash
 sudo apt update && sudo apt install -y build-essential libssl-dev
@@ -115,7 +114,7 @@ cmake --version
 rm -rf cmake-3.27.7 && rm -f cmake-3.27.7.tar.gz
 ```
 
-## [ssh-ident](https://github.com/ccontavalli/ssh-ident)
+# [ssh-ident](https://github.com/ccontavalli/ssh-ident)
 
 Use to start ssh-agents and load ssh keys on demand once. this requires python > 3 to be available.
 
@@ -125,9 +124,9 @@ echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## [Node](https://nodejs.org/en/)
+# [Node](https://nodejs.org/en/)
 
-### [nvm](https://github.com/nvm-sh/nvm)
+## [nvm](https://github.com/nvm-sh/nvm)
 
 Install to manage node versions.
 
@@ -147,9 +146,9 @@ npm install -g yarn
 yarn --version
 ```
 
-### Options
+## Options
 
-#### Set memory use
+### Set memory use
 
 Node has a default max memory use of less than 2GB. It's possible to set or increase this by setting the `max-old-space-size` option from `NODE_OPTIONS`.
 
@@ -165,7 +164,7 @@ Or you can export this from your terminal:
 echo 'export NODE_OPTIONS="--max-old-space-size=4096"' >> ~/.bashrc
 ```
 
-## [SDKMan](https://sdkman.io/)
+# [SDKMan](https://sdkman.io/)
 
 Use this to install SDKs for the JVM like Java and Kotlin
 
@@ -176,7 +175,7 @@ curl -s "https://get.sdkman.io" | bash
 sdk version
 ```
 
-### [Java](https://www.w3schools.com/java/java_intro.asp)
+## [Java](https://www.w3schools.com/java/java_intro.asp)
 
 Using [SDKMan](##SDKMan), install a version of Java
 
@@ -191,7 +190,7 @@ sdk install java 17.0.1-open
 java --version
 ```
 
-### [Gradle](https://gradle.org/)
+## [Gradle](https://gradle.org/)
 
 Using [SDKMan](##SDKMan), install a version of Gradle
 
@@ -202,7 +201,7 @@ sdk install gradle 7.3
 gradle --version
 ```
 
-### [Kotlin](https://kotlinlang.org/)
+## [Kotlin](https://kotlinlang.org/)
 
 Using [SDKMan](###SDKMan), install a version of Kotlin
 ```bash
@@ -212,9 +211,9 @@ sdk install kotlin 1.5.30
 kotlin -version
 ```
 
-## [Ruby](https://www.ruby-lang.org/en/)
+# [Ruby](https://www.ruby-lang.org/en/)
 
-### [rbenv](https://github.com/rbenv/rbenv)
+## [rbenv](https://github.com/rbenv/rbenv)
 
 Using rbenv to manage ruby installations
 
@@ -236,9 +235,9 @@ rbenv install 2.2.6
 ruby --version
 ```
 
-## [Python](https://www.python.org/)
+# [Python](https://www.python.org/)
 
-### [pyenv](https://github.com/pyenv/pyenv)
+## [pyenv](https://github.com/pyenv/pyenv)
 
 Using pyenv to manage python installations and versions
 
@@ -267,7 +266,7 @@ pyenv install 3.9.7
 echo "3.9.7" >> ~/.pyenv/version
 ```
 
-### [poetry](https://python-poetry.org/)
+## [poetry](https://python-poetry.org/)
 
 Install poetry to manage python project dependencies and publishing
 
@@ -283,7 +282,7 @@ poerty --version
 poetry config virtualenvs.in-project true
 ```
 
-## [Rust](https://www.rust-lang.org/tools/install)
+# [Rust](https://www.rust-lang.org/tools/install)
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -293,7 +292,7 @@ rustup --version
 rustc --version
 ```
 
-## [asdf](https://github.com/asdf-vm/asdf)
+# [asdf](https://github.com/asdf-vm/asdf)
 
 Using this to manage versions for different environments and tools
 
@@ -311,7 +310,7 @@ exec $SHELL
 asdf --version
 ```
 
-### [Go](https://kubernetes.io/)
+## [Go](https://kubernetes.io/)
 
 Using asdf to manage go
 
@@ -327,7 +326,7 @@ asdf global golang 1.17.6
 go version
 ```
 
-### [dotnet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
+## [dotnet](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu)
 
 ```bash
 asdf plugin-add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
@@ -342,7 +341,7 @@ asdf global dotnet-core 7.0.403
 dotnet --info
 ```
 
-### [lua](https://www.lua.org/)
+## [lua](https://www.lua.org/)
 
 ```bash
 asdf plugin-add lua https://github.com/Stratus3D/asdf-lua.git
@@ -360,11 +359,11 @@ lua -v
 
 ```
 
-### [Elixir](https://elixir-lang.org/)
+## [Elixir](https://elixir-lang.org/)
 
 Using asdf to manage elixir versions
 
-#### [erlang](https://github.com/asdf-vm/asdf-erlang)
+### [erlang](https://github.com/asdf-vm/asdf-erlang)
 
 ```bash
 # install dependencies first for erland
@@ -376,7 +375,7 @@ asdf install erlang 24.0.5
 asdf global erlang 24.0.5
 ```
 
-#### [elixir](https://github.com/asdf-vm/asdf-elixir)
+### [elixir](https://github.com/asdf-vm/asdf-elixir)
 
 ```bash
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
@@ -389,13 +388,13 @@ asdf global elixir 1.12.2-otp-24
 elixir --version
 ```
 
-## GPG and Password manager with pass
+# GPG and Password manager with pass
 
 This will be used as the credential store for credential helpers ie [docker credential helpers](https://github.com/docker/docker-credential-helpers). 
 
 >You won't need to set this up now unless you know you will need to at least use docker and push to container registries and pull from private container registries.
 
-### [GPG](https://gnupg.org/)
+## [GPG](https://gnupg.org/)
 
 Generate a gpg key. run:
 
@@ -412,7 +411,7 @@ gpg --help
 # once done, check the generated key
 gpg --list-keys
 ```
-### [Pass](https://www.passwordstore.org/)
+## [Pass](https://www.passwordstore.org/)
 
 Install password-store
 
@@ -430,9 +429,9 @@ pass init {{ email used on gpg key creation }}
 # ie 'pass init some@email.com'
 ```
 
-## IDE
+# IDE
 
-### [IntelliJ](https://www.jetbrains.com/help/idea/installation-guide.html)
+## [IntelliJ](https://www.jetbrains.com/help/idea/installation-guide.html)
 
 Install IntelliJ Toolbox and then install Idea and other IntelliJ IDEs from there.
 
@@ -454,9 +453,9 @@ idea ./some/path/to/project/directory
 
 There is a [settings zip file](./intellij/settings-intellij.zip) you can import in Idea to apply configs and theme.
 
-## Docker and Kubernetes
+# Docker and Kubernetes
 
-### [Docker](https://www.docker.com/resources/what-container)
+## [Docker](https://www.docker.com/resources/what-container)
 
 Install docker engine using the repository
 
@@ -506,7 +505,7 @@ sudo echo "127.0.0.1 host.docker.internal" | sudo tee -a /etc/hosts
 # Log out and back in for the changes to take effect 
 ```
 
-#### [Docker Credential Helper](https://github.com/docker/docker-credential-helpers)
+### [Docker Credential Helper](https://github.com/docker/docker-credential-helpers)
 
 You would need to have [GPG and password-store](#gpg-and-password-manager-with-pass) installed and configured before proceeding. Once done:
 
@@ -520,7 +519,7 @@ mkdir ~/.docker && touch ~/.docker/config.json
 echo -e '{\n  "credsStore": "pass"\n}' >> ~/.docker/config.json
 ```
 
-##### Multiple docker configs
+#### Multiple docker configs
 
 When you have multiple accounts that pulls from a container registry, you can create multiple docker configs and use the --config option to use a specific docker config
 
@@ -536,7 +535,7 @@ And to use this config when pulling:
 docker --config ~/.docker-registry-1 pull registry.example.com/container:1.0
 ```
 
-### Kubernetes with [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+## Kubernetes with [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 
 ```bash
 # Install minikube
@@ -556,7 +555,7 @@ Follow further steps 4 from minikube 'docs/start' page to get familiar
 
 https://minikube.sigs.k8s.io/docs/start/
 
-### [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics)
+## [Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basics)
 
 > NOTE: If you added an alias to kubectl using minikube's kubectl above,
 > then you can skip this step
@@ -572,7 +571,7 @@ asdf global kubectl 1.22.2
 kubectl version
 ```
 
-### [Helm](https://helm.sh/)
+## [Helm](https://helm.sh/)
 
 Using asdf to manage helm
 
@@ -587,9 +586,9 @@ asdf global helm 3.8.1
 helm version
 ```
 
-## AWS
+# AWS
 
-### [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
+## [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
 
 ```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -600,7 +599,7 @@ sudo ./aws/install
 sudo apt install amazon-ecr-credential-helper
 ```
 
-#### Configure AWS profile
+### Configure AWS profile
 
 Create an aws profile:
 
@@ -613,7 +612,7 @@ aws configure
 aws sts get-caller-identity
 ```
 
-#### [Multiple AWS Profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+### [Multiple AWS Profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
 
 You can have multiple aws accounts by adding named profiles. To add a new profile, use the same configure command with the profile option:
 
@@ -638,7 +637,7 @@ export AWS_PROFILE=default
 unset AWS_PROFILE
 ```
 
-### [AWS Workspaces](https://clients.amazonworkspaces.com/)
+## [AWS Workspaces](https://clients.amazonworkspaces.com/)
 
 ```bash
 # Add amazon workspaces repo
@@ -650,7 +649,7 @@ sudo apt update
 sudo apt install workspacesclient
 ```
 
-## [Terraform](https://www.terraform.io/intro)
+# [Terraform](https://www.terraform.io/intro)
 
 Using asdf to manage terraform
 
@@ -665,7 +664,7 @@ asdf global terraform 1.1.7
 terraform --version
 ```
 
-## [MongoDB](https://www.mongodb.com/)
+# [MongoDB](https://www.mongodb.com/)
 
 Using asdf to manage mongodb with mongosh
 
@@ -678,11 +677,11 @@ asdf global mongosh 1.5.4
 mongosh --version
 ```
 
-## [QEMU](https://www.qemu.org/)
+# [QEMU](https://www.qemu.org/)
 
 Follow [this guide](https://christitus.com/vm-setup-in-linux/) to setup QEMU
 
-## JMeter
+# JMeter
 
 Run the commands below to install jmeter. Change the version to match to download a specific version.
 
@@ -695,7 +694,7 @@ mkdir -p ~/jmeter && unzip ~/apache-jmeter-5.5.zip -d ~/jmeter && \
 echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
 ```
 
-## Browser
+# Browser
 
 Install the brave browser
 
@@ -718,7 +717,7 @@ sudo apt install brave-browser
 echo "alias brave='brave-browser'" >> ~/.bashrc
 ```
 
-## DBeaver
+# DBeaver
 
 Install
 
@@ -735,7 +734,7 @@ sudo apt install dbeaver-ce
 apt policy dbeaver-ce
 ```
 
-## Postman
+# Postman
 
 ```bash
 wget https://dl.pstmn.io/download/latest/linux64 -O ~/Downloads/linux64
@@ -764,7 +763,7 @@ StartupWMClass=Postman
 StartupNotify=true
 ```
 
-### Uninstall
+## Uninstall
 
 ```bash
 sudo rm -r /usr/bin/Postman
@@ -772,7 +771,7 @@ sudo rm -r /usr/share/applications/Postman.desktop
 sudo rm -r ~/Desktop/Postman.desktop
 ```
 
-## ODBC
+# ODBC
 
 Install odbc
 
@@ -786,7 +785,7 @@ Check the location of the configuration file
 odbcint -j
 ```
 
-### Postgres
+## Postgres
 
 Install odbc driver
 
@@ -807,11 +806,11 @@ Driver=/usr/lib/x86_64-linux-gnu/odbc/psqlodbca.so
 
 ```
 
-### Informix
+## Informix
 
 See guide from this link [Install informix odbc driver](https://techblog.jj-it.de/oracle-gateway-to-odbc/access-to-informix-database-informix-odbc-driver-installation/) or follow the steps below.
 
-#### Install
+### Install
 
 Install required dependencies
 
@@ -833,7 +832,7 @@ sudo ./installclientsdk
 # Select options 1,8,11,12 (odbc and gsl)
 ```
 
-#### Configure
+### Configure
 
 Create a sqlhosts file for informix
 
