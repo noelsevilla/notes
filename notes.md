@@ -3,6 +3,7 @@
 - [Useful commands](#useful-commands)
   - [Color picker](#color-picker)
   - [Unicode table](#unicode-table)
+  - [Regex look ahead and behind](#regex-look-ahead-and-behind)
 - [SSH](#ssh)
   - [Generate SSH keys for Github (or other version control)](#generate-ssh-keys-for-github-or-other-version-control)
   - [Multiple accounts and hosts](#multiple-accounts-and-hosts)
@@ -16,6 +17,8 @@
   - [Remove apt repository](#remove-apt-repository)
 - [Git](#git)
   - [Worktree](#worktree)
+- [Read or Watch](#read-or-watch)
+  - [javascript double vs triple equal for comparison](#javascript-double-vs-triple-equal-for-comparison)
 
 # Useful commands
 
@@ -26,6 +29,20 @@
 ## Unicode table
 
 [Unicode character table](https://unicode-table.com/en)
+
+## Regex look ahead and behind
+
+Examples of [using look ahead and look behind with Regex](https://javascript.info/regexp-lookahead-lookbehind)
+
+For a given path `/path/ids/12s4f-245sr-65ht7/items/12dr5-24fgs-rgt76` , we want to extract two ids:
+
+- One between `ids` and `items`, using:
+
+  ```/(?<=ids\/).*(?=\/items)/ --> 12s4f-245sr-65ht7```
+
+- the other after `items`, using:
+
+  ```/(?<=\/items\/).*/ --> 12dr5-24fgs-rgt76```
 
 # SSH
 
@@ -118,3 +135,24 @@ Articles about and on how to use worktrees for workspace and branch management
 
 [How to use git worktree and in a clean way](https://morgan.cugerone.com/blog/how-to-use-git-worktree-and-in-a-clean-way/)
 [Worktrees that fetches remote branches from bare repository](https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/)
+
+# Read or Watch
+
+## javascript double vs triple equal for comparison
+
+Watch Venkat talk about [using double and tiple equals in javascript](https://www.youtube.com/watch?v=aIVKX5SeLoE&t=27m55s)
+
+```javascript
+const a = '1';
+const b = 1;
+const c = '1.0';
+
+console.log(a == b); // true
+console.log(b == c); // true
+console.log(a == c); // false
+
+console.log(a === b); // false
+console.log(b === c); // false
+console.log(a === c); // false
+
+```
