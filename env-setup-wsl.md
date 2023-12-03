@@ -9,6 +9,8 @@
 - [Enable GUI on WSL](#enable-gui-on-wsl)
   - [VcXsrc](#vcxsrc)
   - [Configure WSL](#configure-wsl)
+- [IntelliJ](#intellij)
+  - [Command line is too long Error](#command-line-is-too-long-error)
 
 # Prerequisites
 
@@ -110,3 +112,19 @@ sudo visudo -f /etc/sudoers.d/dbus
 ```
 
 You should now be able to display a GUI running from WSL on windows.
+
+# IntelliJ
+
+## Command line is too long Error
+
+Set the `Shorten command line` method in the `Run/Debug` configuration of IntelliJ 
+
+OR
+
+In the .idea folder, update `workspace.xml` to add a property with name `dynamic.classpath` and value of `true` in `PropertiesComponent`
+
+```xml
+<component name="PropertiesComponent">
+  <property name="dynamic.classpath" value="true" />
+</component>
+```
