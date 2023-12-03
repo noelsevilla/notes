@@ -12,6 +12,8 @@
 
 # Document your reasoning
 
+`Code should reflect emphaty`
+
 Self-documenting code rarely is. Document why you wrote the code in the way you did; not what it does.
 
 The preferred priority is this:

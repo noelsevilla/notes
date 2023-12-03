@@ -19,6 +19,7 @@
   - [Worktree](#worktree)
 - [Read or Watch](#read-or-watch)
   - [javascript double vs triple equal for comparison](#javascript-double-vs-triple-equal-for-comparison)
+  - [5 things to make work worth doing](#5-things-to-make-work-worth-doing)
 
 # Useful commands
 
@@ -156,3 +157,11 @@ console.log(b === c); // false
 console.log(a === c); // false
 
 ```
+
+## 5 things to make work worth doing
+
+- where you want to live
+- who you work with
+- the mission that you're doing
+- how much you get paid
+- ability to control your time
