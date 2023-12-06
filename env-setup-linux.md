@@ -1,5 +1,8 @@
 <h1>Setup Linux environment</h1>
 
+- [Git](#git)
+  - [delta - diff pager and highlighter](#delta---diff-pager-and-highlighter)
+- [fzf](#fzf)
 - [neovim](#neovim)
   - [Install and configure vim plug-ins](#install-and-configure-vim-plug-ins)
 - [cmake](#cmake)
@@ -55,6 +58,52 @@
   - [Informix](#informix)
     - [Install](#install)
     - [Configure](#configure)
+
+# Git
+
+## [delta](https://github.com/dandavison/delta) - diff pager and highlighter
+
+Download and install from delta release page
+
+```bash
+wget ~/https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
+sudo dpkg -i ~/git-delta_0.16.5_amd64.deb
+
+# check installed
+delta --version
+
+# configure git
+git config --global --add core.pager delta && \
+git config --global --add interactive.diffFilter 'delta --color-only' && \
+git config --global --add delta.navigate true && \
+git config --global --add delta.dark true && \
+git config --global --add delta.line-numbers true && \
+git config --global --add delta.syntax-theme 'Visual Studio Dark+' && \
+git config --global --add file-decoration-style cyan && \
+git config --global --add file-style cyan && \
+git config --global --add inline-hint-styles cyan && \
+git config --global --add tabs 4 && \
+git config --global --add line-numbers-left-style cyan && \
+git config --global --add line-numbers-right-style cyan && \
+git config --global --add line-numbers-minus-style deeppink && \
+git config --global --add line-numbers-plus-style lime && \
+git config --global --add line-numbers-zero-style dimgrey && \
+git config --global --add hunk-header-line-number-style cyan && \
+git config --global --add hunk-header-file-style cyan && \
+git config --global --add hunk-header-decoration-syle 'cyan box'
+```
+
+# [fzf](https://github.com/junegunn/fzf)
+
+Fuzzy finder from terminal. Install from [git repository](https://github.com/junegunn/fzf)
+
+```bash
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
+~/.fzf/install
+
+# check if working
+fzf --version
+```
 
 # neovim
 
