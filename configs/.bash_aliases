@@ -2,6 +2,7 @@
 alias ll='ls -alhF --time-style="+%Y-%m-%d %H:%M:%S"'
 alias la='ls -A'
 alias l='ls -CF'
+alias lls='du -hsc *'
 
 # git
 alias g='git'
@@ -75,8 +76,9 @@ alias gr-run-local='gr-run --args="--spring.profiles.active=local"'
 alias cl='clear'
 alias reload='source ~/.bashrc'
 alias work='cd ~/work'
-alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
 alias dbeaver='dbeaver &> /dev/null & '
+alias code-cl='rm -rf ~/.vscode-server/data/User/workspaceStorage ~/.vscode-server/data/logs'
 
 function idea() {
   if [ -z "$1" ]; then
