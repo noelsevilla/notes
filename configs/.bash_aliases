@@ -2,7 +2,7 @@
 alias ll='ls -alhF --time-style="+%Y-%m-%d %H:%M:%S"'
 alias la='ls -A'
 alias l='ls -CF'
-alias lls='du -hsc *'
+alias lls='du -hsc * .[a-zA-Z0-9]*'
 
 # git
 alias g='git'
