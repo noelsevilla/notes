@@ -1,0 +1,4 @@
+#!/bin/sh
+
+fname=$(fdfind -t f | fzf) || return
+vim "$fname"

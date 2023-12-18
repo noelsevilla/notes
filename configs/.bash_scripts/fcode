@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dirname=$(fdfind -t d | fzf) || return
+code "$dirname"

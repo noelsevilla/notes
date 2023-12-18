@@ -2,6 +2,8 @@
 
 - [Git](#git)
   - [delta - diff pager and highlighter](#delta---diff-pager-and-highlighter)
+- [fd-find](#fd-find)
+- [bat](#bat)
 - [fzf](#fzf)
 - [neovim](#neovim)
   - [Install and configure vim plug-ins](#install-and-configure-vim-plug-ins)
@@ -93,6 +95,30 @@ git config --global --add hunk-header-file-style cyan && \
 git config --global --add hunk-header-decoration-syle 'cyan box'
 ```
 
+# [fd-find](https://github.com/sharkdp/fd)
+
+Alternative to the [find](https://www.gnu.org/software/findutils/) utility. To be used with [fzf](#fzf)
+
+```bash
+sudo apt install fd-find -y
+
+# to search for directories
+fdfind -t d
+
+# to search for files
+fdfind -t f
+```
+
+# [bat](https://github.com/sharkdp/bat)
+
+Alternative to the cat utility
+
+```bash
+sudo apt install bat -y
+
+batcat ~/.bashrc
+```
+
 # [fzf](https://github.com/junegunn/fzf)
 
 Fuzzy finder from terminal. Install from [git repository](https://github.com/junegunn/fzf)
@@ -103,6 +129,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
 
 # check if working
 fzf --version
+
+echo "export FZF_DEFAULT_OPTS=\"--preview 'batcat --theme=\\\"Visual Studio Dark+\\\" --style=numbers --color=always {}'\"" >> ~/.bashrc
 ```
 
 # neovim
