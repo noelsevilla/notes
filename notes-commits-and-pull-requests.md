@@ -10,11 +10,13 @@
     - [Avoid thrashing](#avoid-thrashing)
 - [Summary](#summary)
 
+> Code should reflect emphaty
+
 # Document your reasoning
 
-`Code should reflect emphaty`
+Self-documenting code rarely is.
 
-Self-documenting code rarely is. Document why you wrote the code in the way you did; not what it does.
+[Document why you wrote the code in the way you did; not what it does.](https://www.youtube.com/watch?v=Bf7vDBBOBUA)
 
 The preferred priority is this:
 
@@ -24,6 +26,13 @@ Self-documenting code: You can make some decisions about the code self-documenti
 Automated tests are a great way to document and reason about your implementation.
 
 ## Code comments
+
+> [Good code is like a joke](https://www.youtube.com/watch?v=llGgO74uXMI&t=4365s).</br>
+>
+> When you tell a joke, the worst thing you can ever do, is to explain the joke.
+>
+> The right response is to say nevermind,</br>
+> go home, quietly sit down, and refactor your joke.
 
 If you can't make the code sufficiently self-documenting, add a code comment. At least, the comment is co-located with the code, so even in the unlikely event that you decide to change version control system, the comment is still preserved.
 

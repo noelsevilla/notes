@@ -18,8 +18,12 @@
 - [Git](#git)
   - [Worktree](#worktree)
 - [Read or Watch](#read-or-watch)
-  - [javascript double vs triple equal for comparison](#javascript-double-vs-triple-equal-for-comparison)
+  - [Simplicity](#simplicity)
+  - [Naming](#naming)
+  - [Testing](#testing)
+  - [JavaScript double vs triple equal for comparison](#javascript-double-vs-triple-equal-for-comparison)
   - [5 things to make work worth doing](#5-things-to-make-work-worth-doing)
+  - [4 kinds of people we work with](#4-kinds-of-people-we-work-with)
 
 # Useful commands
 
@@ -139,7 +143,53 @@ Articles about and on how to use worktrees for workspace and branch management
 
 # Read or Watch
 
-## javascript double vs triple equal for comparison
+## Simplicity
+
+> There are two ways of constructing software;</br>
+> One way is to make it so simple that there are obviously no deficiencies;</br>
+> And the other is to make it so complicated that there are no obvious deficiencies.
+> 
+> \- Tony Hoare
+
+> Perfection is achieved,</br>
+> not when there is nothing more add,</br>
+> but when there is nothing left to take away
+> 
+> \- Antoince de Saint-Exupery
+
+> If you have two equally likely solutions to a problem,</br>
+> choose the simplest
+>
+> \- Occam's Razor
+
+> Don't confuse terse with concise and simple
+
+- [The Art of Simplicity](https://www.youtube.com/watch?v=R4C_JciDsuo)
+
+- [RDD - Resume Driven Development](https://www.youtube.com/watch?v=nZcLHkORdHE&t=32m43s)
+
+- [JDD - Jesus Driven Development](https://www.youtube.com/watch?v=uQ75fI1tqoM&t=1336s)
+
+- [Long Method](https://www.youtube.com/watch?v=nVZE53IYi4w&t=35m33s) is not about the length of the code, but levels of abstraction
+
+## Naming
+
+> If we can't name a variable or a function appropriately,</br>
+> it may be a sign we've not yet understood its true purpose.
+
+- [Give good meaningful names](https://www.youtube.com/watch?v=nVZE53IYi4w&t=38m37s)
+
+- [Naming things](https://www.youtube.com/watch?v=-J3wNP6u5YU)
+
+## Testing
+
+> Testing vs Verification;</br>
+> Testing is the act of gaining insight;</br>
+> Verification checks if it still works
+
+- [We automate tests not because we have a lot of time, but because we don't](https://www.youtube.com/watch?v=uQ75fI1tqoM&t=1531s)
+
+## JavaScript double vs triple equal for comparison
 
 Watch Venkat talk about [using double and tiple equals in javascript](https://www.youtube.com/watch?v=aIVKX5SeLoE&t=27m55s)
 
@@ -165,3 +215,11 @@ console.log(a === c); // false
 - the mission that you're doing
 - how much you get paid
 - ability to control your time
+
+## 4 kinds of people we work with
+
+[People we work with in software](https://www.youtube.com/watch?v=llGgO74uXMI&t=5906s)
+
+1. knows domain really well, knows no software
+2. knows no domain, knows software really well
+3. knows domain really well and knows software really well 
