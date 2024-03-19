@@ -4,6 +4,10 @@
 - [Set WSL2 as the default version](#set-wsl2-as-the-default-version)
 - [Install a Linux distribution](#install-a-linux-distribution)
   - [Upgrade linux packages](#upgrade-linux-packages)
+- [WSL admin tools](#wsl-admin-tools)
+  - [Reduce WSL image size](#reduce-wsl-image-size)
+  - [Compact memory](#compact-memory)
+  - [Drop caches](#drop-caches)
 - [Install Windows Terminal](#install-windows-terminal)
 - [Setup Linux environment](#setup-linux-environment)
 - [Enable GUI on WSL](#enable-gui-on-wsl)
@@ -55,6 +59,30 @@ From the open terminal for Ubuntu, update and upgrade installed packages by runn
 # This is the user and password you set during the linux distro installation.
 
 sudo apt-get update && sudo apt-get upgrade -y
+```
+
+# WSL admin tools
+
+## Reduce WSL image size
+
+```powershell
+# From powershell as an admin
+cd .\AppData\Local\Docker\wsl\data
+optimize-vhd -Path .\ext4.vhdx -Mode full
+```
+
+## Compact memory
+
+```bash
+# From wsl shell
+sudo bash -c '\''echo 1 > /proc/sys/cm/compact_memory'\'''
+```
+
+## Drop caches
+
+```bash
+# From wsl shell
+sudo bash -c "echo 1 > /proc/sys/vm/drop_caches"
 ```
 
 # Install [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/install)
