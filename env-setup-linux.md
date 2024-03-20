@@ -37,6 +37,7 @@
   - [IntelliJ](#intellij)
 - [Docker and Kubernetes](#docker-and-kubernetes)
   - [Docker](#docker)
+    - [Docker Compose V2](#docker-compose-v2)
     - [Docker Credential Helper](#docker-credential-helper)
       - [Multiple docker configs](#multiple-docker-configs)
   - [Kubernetes with Minikube](#kubernetes-with-minikube)
@@ -565,7 +566,7 @@ sudo apt update
 # Update docker.list with the correct release name ie from 'Una' to 'Focal'
 
 # Continue with the install
-sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt install docker-ce docker-ce-cli containerd.io -y
 
 # Test docker engine is working by running a hello-world image
 sudo docker run hello-world
@@ -584,6 +585,12 @@ newgrp $USER
 sudo echo "127.0.0.1 host.docker.internal" | sudo tee -a /etc/hosts
 
 # Log out and back in for the changes to take effect 
+```
+
+### Docker Compose V2
+
+```bash
+sudo apt update && sudo apt install docker-compose-plugin -y
 ```
 
 ### [Docker Credential Helper](https://github.com/docker/docker-credential-helpers)
