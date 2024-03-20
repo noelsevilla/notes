@@ -68,7 +68,7 @@
 Download and install from delta release page
 
 ```bash
-wget ~/https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb
+wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb -P ~/ && \
 sudo dpkg -i ~/git-delta_0.16.5_amd64.deb
 
 # check installed
@@ -81,18 +81,18 @@ git config --global --add delta.navigate true && \
 git config --global --add delta.dark true && \
 git config --global --add delta.line-numbers true && \
 git config --global --add delta.syntax-theme 'Visual Studio Dark+' && \
-git config --global --add file-decoration-style cyan && \
-git config --global --add file-style cyan && \
-git config --global --add inline-hint-styles cyan && \
-git config --global --add tabs 4 && \
-git config --global --add line-numbers-left-style cyan && \
-git config --global --add line-numbers-right-style cyan && \
-git config --global --add line-numbers-minus-style deeppink && \
-git config --global --add line-numbers-plus-style lime && \
-git config --global --add line-numbers-zero-style dimgrey && \
-git config --global --add hunk-header-line-number-style cyan && \
-git config --global --add hunk-header-file-style cyan && \
-git config --global --add hunk-header-decoration-syle 'cyan box'
+git config --global --add delta.file-decoration-style cyan && \
+git config --global --add delta.file-style cyan && \
+git config --global --add delta.inline-hint-styles cyan && \
+git config --global --add delta.tabs 4 && \
+git config --global --add delta.line-numbers-left-style cyan && \
+git config --global --add delta.line-numbers-right-style cyan && \
+git config --global --add delta.line-numbers-minus-style deeppink && \
+git config --global --add delta.line-numbers-plus-style lime && \
+git config --global --add delta.line-numbers-zero-style dimgrey && \
+git config --global --add delta.hunk-header-line-number-style cyan && \
+git config --global --add delta.hunk-header-file-style cyan && \
+git config --global --add delta.hunk-header-decoration-syle 'cyan box'
 ```
 
 # [fd-find](https://github.com/sharkdp/fd)
@@ -141,8 +141,8 @@ Install neovim and set as default editor
 >~/.local/share/nvim/swap/
 
 ```bash
-sudo apt update && sudo apt install neovim
-update-alternatives --set editor /usr/bin/nvim
+sudo apt update && sudo apt install neovim -y && \
+sudo update-alternatives --set editor /usr/bin/nvim
 
 # create vim alias to point to nvim
 echo "alias vim='nvim'" >> ~/.bashrc
@@ -246,6 +246,7 @@ echo 'export NODE_OPTIONS="--max-old-space-size=4096"' >> ~/.bashrc
 Use this to install SDKs for the JVM like Java and Kotlin
 
 ```bash
+sudo apt update && sudo apt install zip unzip -y && \
 curl -s "https://get.sdkman.io" | bash
 
 # check SDKMan working properly
@@ -323,24 +324,24 @@ Using pyenv to manage python installations and versions
 sudo apt update && \
   sudo apt install make build-essential libssl-dev zlib1g-dev \
   libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
-  libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+  libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 # then install pyenv
 curl https://pyenv.run | bash
 
 # add this to ~/.bashrc
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+echo 'export PATH="$HOME/.pyenv/bin:$PATH"' >> ~/.bashrc && \
+echo 'eval "$(pyenv init --path)"' >> ~/.bashrc && \
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 # list available versions of python
-pyenv install -l
+source ~/.bashrc && pyenv install -l
 
 # install a python version
-pyenv install 3.9.7
+source ~/.bashrc && pyenv install 3.9.2
 
 # set a default python version thru pyenv
-echo "3.9.7" >> ~/.pyenv/version
+echo "3.9.2" >> ~/.pyenv/version
 ```
 
 ## [poetry](https://python-poetry.org/)
@@ -349,7 +350,7 @@ Install poetry to manage python project dependencies and publishing
 
 ```bash
 # install
-curl -sSL https://install.python-poetry.org | python -
+curl -sSL https://install.python-poetry.org | python - && \
 echo 'export PATH="~/.local/bin:$PATH"' >> ~/.bashrc
 
 # check python is installed
@@ -374,10 +375,10 @@ rustc --version
 Using this to manage versions for different environments and tools
 
 ```bash
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
 
 # add asdf and asdf completions to .bashrc
-echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1 && \
+echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc && \
 echo ". $HOME/.asdf/completions/asdf.bash" >> ~/.bashrc
 
 # reload shell
@@ -397,7 +398,7 @@ asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 # check available versions
 asdf list all golangrw
 
-asdf install golang 1.17.6
+asdf install golang 1.17.6 && \
 asdf global golang 1.17.6
 
 go version
@@ -513,11 +514,14 @@ pass init {{ email used on gpg key creation }}
 Install IntelliJ Toolbox and then install Idea and other IntelliJ IDEs from there.
 
 ```bash
-wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.25.12627.tar.gz -P ~/
+wget https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.25.12627.tar.gz -P ~/ && \
 sudo tar -xzf ~/jetbrains-toolbox-1.25.12627.tar.gz -C /opt
 # create symlink to user
-sudo ln -s /opt/jetbrains-toolbox-1.25.12627/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox
+sudo ln -s /opt/jetbrains-toolbox-1.25.12627/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox && \
 sudo chmod -R +rwx /usr/local/bin/jetbrains-toolbox
+
+# install jetbrains-toolbox deps:
+sudo apt install libfuse2 libxi6 libxrender1 libxtst6 mesa-utils libfontconfig libgtk-3-bin -y
 
 # you can then run 'jetbrains-toolbox' from the terminal to start
 ```
@@ -668,12 +672,12 @@ helm version
 ## [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install)
 
 ```bash
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+unzip awscliv2.zip && \
 sudo ./aws/install
 
 # install docker ecr login helper
-sudo apt install amazon-ecr-credential-helper
+sudo apt install amazon-ecr-credential-helper -y
 ```
 
 ### Configure AWS profile
@@ -777,20 +781,19 @@ Install the brave browser
 
 ```bash
 # Update packages and install prereq
-sudo apt update
+sudo apt update && \
 sudo apt -y install curl software-properties-common apt-transport-https
 
 # import brave repo keys
-curl https://brave-browser-apt-release.s3.brave.com/brave-core.asc| gpg --dearmor > brave-core.gpg
+curl https://brave-browser-apt-release.s3.brave.com/brave-core.asc| gpg --dearmor > brave-core.gpg && \
 sudo install -o root -g root -m 644 brave-core.gpg /etc/apt/trusted.gpg.d/
 
 # Add brave to repo
 echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
 # Update package and install brave browser
-sudo apt update
-sudo apt install brave-browser
-
+sudo apt update && \
+sudo apt install brave-browser -y && \
 echo "alias brave='brave-browser'" >> ~/.bashrc
 ```
 
