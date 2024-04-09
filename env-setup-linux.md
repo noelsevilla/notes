@@ -53,6 +53,8 @@
 - [QEMU](#qemu)
 - [JMeter](#jmeter)
 - [Browser](#browser)
+  - [Brave](#brave)
+  - [Chrome](#chrome)
 - [DBeaver](#dbeaver)
 - [Postman](#postman)
   - [Uninstall](#uninstall)
@@ -784,6 +786,8 @@ echo "alias jmeter='~/jmeter/apache-jmeter-5.5/bin/jmeter'" >> ~/.bashrc
 
 # Browser
 
+## Brave
+
 Install the brave browser
 
 ```bash
@@ -802,6 +806,15 @@ echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable ma
 sudo apt update && \
 sudo apt install brave-browser -y && \
 echo "alias brave='brave-browser'" >> ~/.bashrc
+```
+
+## Chrome
+
+```bash
+sudo apt update && \
+sudo apt install -y curl unzip xvfb libxi6 libconf-2-4 && \
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/ && \
+sudo apt install -y ~/google-chrome-stable_current_amd64.deb
 ```
 
 # DBeaver
