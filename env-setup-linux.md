@@ -63,6 +63,7 @@
   - [Informix](#informix)
     - [Install](#install)
     - [Configure](#configure)
+- [Spotify](#spotify)
 
 # Git
 
@@ -771,6 +772,21 @@ mongosh --version
 
 Follow [this guide](https://christitus.com/vm-setup-in-linux/) to setup QEMU
 
+OR run commands below
+
+```sh
+sudo apt install qemu-kvm qemu-system qemu-utils python3 python3-pip libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager -y && \
+sudo systemctl status libvirtd.service && \
+sudo virsh net-start default && \
+sudo virsh net-autostart default && \
+sudo virsh net-list --all && \
+sudo usermod -aG libvirt $USER && \
+sudo usermod -aG libvirt-qemu $USER && \
+sudo usermod -aG kvm $USER && \
+sudo usermod -aG input $USER && \
+sudo usermod -aG disk $USER
+```
+
 # JMeter
 
 Run the commands below to install jmeter. Change the version to match to download a specific version.
@@ -962,4 +978,13 @@ Servername={{server_name}}
 echo 'export INFORMIXDIR=/opt/IBM/informix' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=$INFORMIXDIR/lib/esql' >> ~/.bashrc
 echo 'export ODBCINI=/etc/odbcinst.ini' >> ~/.bashrc
+```
+
+# Spotify
+
+```sh
+curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg && \
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list && \
+sudo apt update && \
+sudo apt install spotify-client
 ```
