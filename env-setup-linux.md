@@ -57,6 +57,7 @@
   - [Chrome](#chrome)
 - [DBeaver](#dbeaver)
 - [Postman](#postman)
+  - [Install with snap](#install-with-snap)
   - [Uninstall](#uninstall)
 - [ODBC](#odbc)
   - [Postgres](#postgres)
@@ -877,6 +878,14 @@ Type=Application
 Icon=/usr/bin/Postman/app/resources/app/assets/icon.png
 StartupWMClass=Postman
 StartupNotify=true
+```
+
+## Install with snap
+
+The latest version of Postman requires an account. We can use snap to install an earlier version of postman that does not require this
+
+```sh
+snap install postman --channel=v9/stable
 ```
 
 ## Uninstall
