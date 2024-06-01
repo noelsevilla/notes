@@ -6,6 +6,6 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-git worktree remove "$1"
+git worktree remove "$1" --force
 git worktree prune
-git branch -D "$1"
+git branch -D "$1" --force
