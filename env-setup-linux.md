@@ -997,3 +997,10 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 sudo apt update && \
 sudo apt install spotify-client
 ```
+
+# Shurfshark
+
+```
+curl -f https://downloads.surfshark.com/linux/debian-install.sh --output surfshark-install.sh && \
+sh surfshark-install.sh
+```
