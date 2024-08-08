@@ -12,7 +12,10 @@
   - [File Permissions Notation](#file-permissions-notation)
   - [Find files](#find-files)
   - [Batch rename](#batch-rename)
-  - [Increase qemu/kvm disk size](#increase-qemukvm-disk-size)
+  - [kvm](#kvm)
+    - [Increase qemu/kvm disk size](#increase-qemukvm-disk-size)
+    - [Export](#export)
+    - [Import](#import)
   - [ddrescue for iso images](#ddrescue-for-iso-images)
   - [Remove apt repository](#remove-apt-repository)
 - [Git](#git)
@@ -117,10 +120,36 @@ Find files in linux using [find](https://www.plesk.com/blog/various/find-files-i
 [How to rename files in linux](https://linuxize.com/post/how-to-rename-files-in-linux/)
 [How to rename multiple files on linux](https://linuxconfig.org/how-to-rename-multiple-files-on-linux)
 
-## Increase qemu/kvm disk size
+## kvm
+
+### Increase qemu/kvm disk size
 
 [Increase disk size of a vm and expanding windows vm disk size](https://techglimpse.com/expand-windows-10-vm-virtual-disk-size-qemu-kvm/)
 
+```sh
+qemu-img resize win10.qcow2 +10G
+```
+
+### Export
+
+```sh
+# export vm xml
+virsh dumpxml vm-name > /path/to/xm_file.xml
+
+# export vm image
+# chown this image to $USER if you want to copy this somewhere else
+sudo cp /var/lib/libvirt/images/ubuntu20.04-clone.qcow2 ~/Documents/
+```
+
+### Import
+
+```sh
+# import vm xml
+virsh define --file <path-to-xml-file>
+
+# import vm image
+sudo cp ~/Documents/ubuntu20.04-clone.qcow2 /var/lib/libvirt/images/
+```
 
 ## ddrescue for iso images
 
