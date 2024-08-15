@@ -65,6 +65,7 @@
     - [Install](#install)
     - [Configure](#configure)
 - [Spotify](#spotify)
+- [Shurfshark](#shurfshark)
 
 # Git
 
