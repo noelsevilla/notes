@@ -50,6 +50,8 @@ alias di-list='di list'
 alias di-list-all='di list --all'
 alias di-prune='di prune -f'
 alias di-prune-all='di prune --all -f'
+alias dn-prune-all='dn prune -f'
+alias d-rm-all='d rm -v -f $(docker ps -qa)'
 alias compose='d compose'
 
 # minikube
