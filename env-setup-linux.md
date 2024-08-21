@@ -66,6 +66,7 @@
     - [Configure](#configure)
 - [Spotify](#spotify)
 - [Shurfshark](#shurfshark)
+- [Zwift](#zwift)
 
 # Git
 
@@ -1004,4 +1005,12 @@ sudo apt install spotify-client
 ```
 curl -f https://downloads.surfshark.com/linux/debian-install.sh --output surfshark-install.sh && \
 sh surfshark-install.sh
+```
+
+# Zwift
+
+https://github.com/netbrain/zwift
+
+```sh
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/netbrain/zwift/master/bin/install.sh)"
 ```
