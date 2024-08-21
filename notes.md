@@ -18,6 +18,7 @@
     - [Import](#import)
   - [ddrescue for iso images](#ddrescue-for-iso-images)
   - [Remove apt repository](#remove-apt-repository)
+  - [Enable hibernate](#enable-hibernate)
 - [Git](#git)
   - [Worktree](#worktree)
 - [Read or Watch](#read-or-watch)
@@ -160,6 +161,27 @@ ddrescue -D --force /path/to/iso/image /dev/sdx/path/to/usb
 ## Remove apt repository
 
 Remove file entry of application in directory `/etc/apt/sources.list.d`
+
+## Enable hibernate
+
+```sh
+# Get the swap partition UUID
+sudo blkid | grep swap
+# ie grab the UUID value from
+# /dev/nvme0n1p3: UUID="some-random-uuid" TYPE="swap" PARTUUID="711eb0f8-d4a2-4294-8c96-7a2269d1cdef"
+
+# Edit grub with the linux default uuid and save
+sudo vim /etc/default/grub
+
+# Update GRUB_CMDLINE_LINUX_DEFAULT= with
+# GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=some-random-uuid"
+
+# Update grub
+sudo update-grub
+
+# Add alias to hibernate
+echo "alias hibernate='sudo systemctl hibernate'" > ~/.bashrc
+```
 
 # Git
 
