@@ -77,6 +77,7 @@ alias gr-run-local='gr-run --args="--spring.profiles.active=local"'
 # other alias
 alias cl='clear'
 alias reload='source ~/.bashrc'
+alias reload-budgie='nohup budgie-panel --replace &'
 alias work='cd ~/work'
 alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
 alias dbeaver='dbeaver &> /dev/null & '
