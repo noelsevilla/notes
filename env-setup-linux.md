@@ -778,7 +778,7 @@ Follow [this guide](https://christitus.com/vm-setup-in-linux/) to setup QEMU
 OR run commands below
 
 ```sh
-sudo apt install qemu-kvm qemu-system qemu-utils python3 python3-pip libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager -y && \
+sudo apt install qemu-kvm qemu-system qemu-utils python3 python3-pip libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager virtiofsd -y && \
 sudo systemctl status libvirtd.service && \
 sudo virsh net-start default && \
 sudo virsh net-autostart default && \
