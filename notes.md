@@ -121,6 +121,11 @@ Find files in linux using [find](https://www.plesk.com/blog/various/find-files-i
 [How to rename files in linux](https://linuxize.com/post/how-to-rename-files-in-linux/)
 [How to rename multiple files on linux](https://linuxconfig.org/how-to-rename-multiple-files-on-linux)
 
+```sh
+for file in *; do mv $file ${file//FIND_THIS_STRING_/NEW_STRING_}; done
+
+```
+
 ## kvm
 
 ### Increase qemu/kvm disk size
