@@ -53,6 +53,7 @@ alias di-prune-all='di prune --all -f'
 alias dn-prune-all='dn prune -f'
 alias d-rm-all='d rm -v -f $(docker ps -qa)'
 alias compose='d compose'
+alias dl='d logs -f'
 
 # minikube
 alias kube='minikube kubectl --'
@@ -71,7 +72,7 @@ alias pytest='pytest -s --disable-warnings --tb=short -m'
 
 # gradle
 alias gr='./gradlew'
-alias gr-run='gr bootRun'
+alias gr-run='gr :bootRun'
 alias gr-run-local='gr-run --args="--spring.profiles.active=local"'
 
 # other alias
@@ -83,6 +84,10 @@ alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -
 alias dbeaver='dbeaver &> /dev/null & '
 alias code-cl='rm -rf ~/.vscode-server/data/User/workspaceStorage ~/.vscode-server/data/logs'
 alias x='exit'
+alias vim='nvim'
+alias v='vim'
+alias cat='batcat'
+alias hibernate='sudo systemctl hibernate'
 
 function idea() {
   if [ -z "$1" ]; then
