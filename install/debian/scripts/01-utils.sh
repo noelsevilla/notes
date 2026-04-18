@@ -76,7 +76,3 @@ curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo 
   sudo apt autoclean && \
   sudo apt update && \
   sudo apt install spotify-client
-
-# surfshark
-curl -f https://downloads.surfshark.com/linux/debian-install.sh --output "$HOME/surfshark-install.sh" && \
-  sudo sh "$HOME/surfshark-install.sh"
