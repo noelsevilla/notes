@@ -20,6 +20,8 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+pyenv install 3.14.2
+
 # https://python-poetry.org
 curl -sSL https://install.python-poetry.org | python -
 poetry config virtualenvs.in-project true
