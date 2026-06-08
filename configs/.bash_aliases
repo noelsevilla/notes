@@ -6,14 +6,15 @@ alias lls='du -hsc * .[a-zA-Z0-9]*'
 
 # git
 alias g='git'
-alias gf='git fetch --all --prune'
+alias gf='git fetch --all --prune && pruneLocalGitBranches'
 alias gl='git log --graph --pretty=format:"%C(auto)%h%d %Cgreen%ad%Creset %s %C(dim white)<%aN>%Creset" --date=format-local:"%Y%m%d-%H%M"'
-alias gb='git branch --list --format="%(color:green)%(authordate:format:%Y%m%d-%H%M)%(color:reset) %(color:dim white)%(objectname:short)%(color:reset) %(if)%(HEAD)%(then)%(color:brightgreen)* %(end)%(if)%(push)%(then)%(color:brightwhite)%(refname:short)%(else)%(color:brightred)%(refname:short)%(end) %(color:reset)%(if)%(push:track)%(then)%(color:white)%(push:track) %(else)%(end)%(color:reset)%(color:normal)%(subject) %(color:dim white)<%(authorname)>" --all'
-alias gfb='git fetch --all --prune  && gb'
+alias gb='git branch --list --format="%(color:green)%(authordate:format:%Y%m%d-%H%M)%(color:reset) %(color:dim white)%(objectname:short)%(color:reset) %(if)%(HEAD)%(then)%(color:brightgreen)* %(end)%(if)%(push)%(then)%(color:brightwhite)%(refname:short)%(else)%(color:brightred)%(refname:short)%(end) %(color:reset)%(if)%(push:track)%(then)%(color:white)%(push:track) %(else)%(end)%(color:reset)%(color:normal)%(subject) %(color:dim white)<%(authorname)>" --all --sort=-committerdate'
+alias gfb="gf && gb"
 alias gbd='git branch -D'
 alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gpl='git pull'
+alias gfp='gf && gpl'
 alias gps='git push'
 alias gpso='git push origin'
 alias gs='git status'
@@ -28,8 +29,12 @@ alias gcp='git cherry-pick'
 alias gsh='git stash'
 alias gshp='git stash pop'
 alias gd='git diff'
-alias gcom='git commit'
+alias gcom='git commit -m'
 alias gcoma='git commit --amend --no-edit'
+alias gpr='gh pr create --fill && gh pr view --web'
+alias gprune='git remote prune origin && git reflog expire --expire-unreachable=now --all && git prune && git gc --aggressive'
+alias grbo='git rebase origin/master'
+alias gro='gf && gsh && grbo && gsh pop'
 
 # aws
 alias aws-get-identity='aws sts get-caller-identity'
@@ -50,7 +55,7 @@ alias di-list='di list'
 alias di-list-all='di list --all'
 alias di-prune='di prune -f'
 alias di-prune-all='di prune --all -f'
-alias dn-prune-all='dn prune -f'
+alias dn-prune='dn prune -f'
 alias d-rm-all='d rm -v -f $(docker ps -qa)'
 alias compose='d compose'
 alias dl='d logs -f'
@@ -81,12 +86,11 @@ alias reload='source ~/.bashrc'
 alias reload-budgie='nohup budgie-panel --replace &'
 alias work='cd ~/work'
 alias update-os='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean'
-alias dbeaver='dbeaver &> /dev/null & '
 alias code-cl='rm -rf ~/.vscode-server/data/User/workspaceStorage ~/.vscode-server/data/logs'
-alias x='exit'
 alias vim='nvim'
 alias v='vim'
 alias cat='batcat'
+alias x='exit'
 alias hibernate='sudo systemctl hibernate'
 
 function idea() {
@@ -95,4 +99,12 @@ function idea() {
   else
     source idea "$1" &> /dev/null &
   fi
+}
+
+function pruneLocalGitBranches() {
+	for branch in $(git branch -vv | awk '!/\[origin\// && !/\(\/home\/nok\// {print $1}'); do
+		echo "Deleting local branch -> $branch";
+		# git branch -D $branch || true;
+		rm-git-worktree $branch || true;
+	done
 }
