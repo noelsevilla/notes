@@ -58,8 +58,7 @@ sudo apt install amazon-ecr-credential-helper -y
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
 # dbeaver
-wget -O - https://dbeaver.io/debs/dbeaver.gpg.key | sudo apt-key add -
-echo "deb https://dbeaver.io/debs/dbeaver-ce /" | sudo tee /etc/apt/sources.list.d/dbeaver.list
+sudo snap install dbeaver-ce --classic
 
 sudo apt clean && \
   sudo apt autoclean && \
@@ -70,7 +69,4 @@ sudo apt clean && \
 sudo snap install postman --channel=v9/stable
 
 # spotify
-curl -sS https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg && \
-  echo "deb https://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list && \
-  sudo apt update && \
-  sudo apt install spotify-client
+sudo snap install spotify
