@@ -1,0 +1,14 @@
+#!/bin/bash
+trap 'kill 0' EXIT
+
+# Run this script from your working directory
+
+cd ~/work
+currentDirectory=$(pwd)
+printf "Cloning repos to ${currentDirectory}\n\n"
+
+~/work/noelsevilla/notes-private/main/git-clones-nok.sh &
+# ~/work/noelsevilla/notes-private/main/git-clones-learn.sh &
+~/work/noelsevilla/notes-private/main/git-clones-linz.sh &
+# ~/work/noelsevilla/notes-private/main/git-clones-loyalty.sh &
+wait
