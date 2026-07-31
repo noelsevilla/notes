@@ -8,7 +8,7 @@ alias lls='du -hsc * .[a-zA-Z0-9]*'
 alias g='git'
 alias gf='git fetch --all --prune && pruneLocalGitBranches'
 alias gl='git log --graph --pretty=format:"%C(auto)%h%d %Cgreen%ad%Creset %s %C(dim white)<%aN>%Creset" --date=format-local:"%Y%m%d-%H%M"'
-alias gb='git branch --list --format="%(color:green)%(authordate:format:%Y%m%d-%H%M)%(color:reset) %(color:dim white)%(objectname:short)%(color:reset) %(if)%(HEAD)%(then)%(color:brightgreen)* %(end)%(if)%(push)%(then)%(color:brightwhite)%(objectname:short)%(else)%(color:brightred)%(refname:short)%(end) %(color:reset)%(if)%(push:track)%(then)%(color:white)%(push:track) %(else)%(end)%(color:reset)%(color:normal)%(subject) %(color:dim white)<%(authorname)>" --all --sort=-committerdate'
+alias gb='git branch --list --format="%(color:green)%(authordate:format:%Y%m%d-%H%M)%(color:reset) %(color:dim white)%(objectname:short)%(color:reset) %(if)%(HEAD)%(then)%(color:brightgreen)* %(end)%(if)%(push)%(then)%(color:brightwhite)%(refname:short)%(else)%(color:brightred)%(refname:short)%(end) %(color:reset)%(if)%(push:track)%(then)%(color:white)%(push:track) %(else)%(end)%(color:reset)%(color:normal)%(subject) %(color:dim white)<%(authorname)>" --all --sort=-committerdate'
 alias gfb="gf && gb"
 alias gbd='git branch -D'
 alias gco='git checkout'
