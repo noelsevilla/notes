@@ -19,6 +19,7 @@
   - [ddrescue for iso images](#ddrescue-for-iso-images)
   - [Remove apt repository](#remove-apt-repository)
   - [Enable hibernate](#enable-hibernate)
+  - [Enable zramswap](#enable-zramswap)
 - [Git](#git)
   - [Worktree](#worktree)
 - [Read or Watch](#read-or-watch)
@@ -186,6 +187,34 @@ sudo update-grub
 
 # Add alias to hibernate
 echo "alias hibernate='sudo systemctl hibernate'" > ~/.bashrc
+```
+
+## Enable zramswap
+
+```sh
+# Install zram-tools for debian or ubuntu distros
+sudo apt update
+sudo apt install -y zram-tools
+# This installs the package and starts a default zram sway immediately
+# Usually 50% of RAM, lz4 compresstion, via zramswap.service
+
+# Configure the config file
+sudo vim /etc/default/zramswap
+# Set these values:
+# ALGO=zstd
+# PERCENT=50
+# PRIORITY=100
+
+# zstd compresses better than the default lz4
+# PRIORITY=100 makes zram preferred over disk swap partition, so the kernel swaps
+# to fast RAM compressed zram first and only spills to disk swap if zram fills up
+
+# Apply the new config
+sudo systemctl restart zramsway
+
+# Verify working
+zramctl
+swapon --show
 ```
 
 # Git
